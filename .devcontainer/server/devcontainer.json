@@ -1,6 +1,6 @@
 {
-    "name": "Garage - server",
-    "service" : "server",
+    "name": "Garage - Server",
+    "service": "server",
     "dockerComposeFile": "../../docker-compose.dev.yaml",
     "workspaceFolder": "/app",
     "customizations": {
@@ -10,19 +10,34 @@
                 "VisualStudioExptTeam.vscodeintellicode",
                 "biomejs.biome"
             ],
+
             "settings": {
+                "explorer.compactFolders": false,
+
+                "[javascript]": {
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.defaultFormatter": "biomejs.biome"},
+
+                "[javascriptreact]": {
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.defaultFormatter": "biomejs.biome"},
+
+                "[json]": {
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.defaultFormatter": "biomejs.biome"},
+
                 "[typescript]": {
-                     "editor.formatOnSave": true,
-                     "editor.formatOnType": true,
-                     "editor.defaultFormatter": "biomejs.biome"
-                },
-                     "editor.codeActionsOnSave": {
-                     "source.fixAll": "always"
-                }
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "editor.defaultFormatter": "biomejs.biome"},
+
+                "editor.codeActionsOnSave": {
+                "source.fixAll": "always"}
 
             }
-
-       }
-
+        }
     }
 }
