@@ -1,14 +1,14 @@
 import express from "express";
-import HomepageController from "../controller/homepage_controller.js";
-class HomepageRouter {
+import BrandController from "../controller/brand_controller.js";
+class BrandRouter {
     router = express.Router();
     getRouter = () => {
         /*
              lister les routes associées au préfixe du routeur
              une route est reliée à une URL et à méthode HTTP (GET, PUT, POST, DELETE)
         */
-        this.router.get('/', new HomepageController().index);
+        this.router.get('/', new BrandController().selectAll);
         return this.router;
     };
 }
-export default HomepageRouter;
+export default BrandRouter;

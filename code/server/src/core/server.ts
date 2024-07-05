@@ -3,6 +3,7 @@ import express, { type Router, type Express, type Request, type Response } from 
 import http from "node:http";
 import HomepageRouter from "../router/homepage_router.js";
 import NotFoundRouter from "../router/not_found_router.js";
+import BrandRouter from "../router/brand_router.js";
 
 class Server {
     // propriétés
@@ -25,7 +26,8 @@ class Server {
            -préfixe de toutes les routes conteneur dans le routeur
            -routeur
         */
-        this.router.use("/", new HomepageRouter().getRouter());   
+        this.router.use("/", new HomepageRouter().getRouter());
+        this.router.use("/brand", new BrandRouter().getRouter());
 
         // le routeur NotFound doit etre obligatoirement appeleé en dernière position
         this.router.use('*', new NotFoundRouter().getRouter());
