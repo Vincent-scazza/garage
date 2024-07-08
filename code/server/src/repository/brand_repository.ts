@@ -9,6 +9,9 @@ class BrandRepository{
     // table principale utilisée par la classe
     private table = 'brand';
 
+
+        // fonction selectALL
+
     // sélection de tous les enregistrements
     public selectALL = async () => {
         /* connexion à la base de données
@@ -32,7 +35,34 @@ class BrandRepository{
     } catch (error: unknown) {
     return error;
     }
-        };
+    };
+
+     
+        // fonction SelectOne
+    // data représente req.params envoyé par le controleur
+    public selectOne = async (data: object) => {
+        
+        const connection: Pool = await this.mySQLService.connect();
+
+        // Création d'une variable de requete, éviter les injections SQL
+    const query = `
+    SELECT ${this.table}.*
+    FROM ${process.env.MYSQL_DB}.${this.table}
+    WHERE ${this.table}.id = :id
+    ;
+    `;
+        
+    try {
+    const results: [QueryResult, FieldPacket[]] = await
+    connection.execute(query, data);
+
+    return results.shift();
+    } catch (error: unknown) {
+    return error;
+    }
+    };
+    
+
 }
     
 export default BrandRepository;

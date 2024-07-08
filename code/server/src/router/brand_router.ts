@@ -1,5 +1,4 @@
 import express, { Request, Response, Router } from "express"
-import brandController from "../controller/brand_controller.js";
 import BrandController from "../controller/brand_controller.js";
 
 class BrandRouter {
@@ -10,11 +9,14 @@ class BrandRouter {
              lister les routes associées au préfixe du routeur
              une route est reliée à une URL et à méthode HTTP (GET, PUT, POST, DELETE)
         */
-        this.router.get('/', new  BrandController().selectAll);
+        this.router.get("/", new BrandController().index);
+        
+        // route avec une variable de route; procédée d'un : 
+        this.router.get("/:id", new BrandController().one);
 
         return this.router;
     };
-        
+    
 }
 
 

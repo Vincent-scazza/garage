@@ -5,32 +5,60 @@ import BrandRepository from "../repository/brand_repository.js";
 class BrandController {
     private BrandRepository: BrandRepository = new BrandRepository();
 
+    // CLASSE index 
 
     // méthodes appelées par le routeur
-    // public index = (req: Request, res: Response): Response => {
-    //     return res.send("brand controller vincent");
-    // };
-
-   
-    public selectAll = async (req: Request, res: Response): Promise<Response> => {
-        const results: RowDataPacket | unknown = await this.BrandRepository.selectALL();
-
+    public index = async (req: Request, res: Response): Promise<Response> => {
+        const results = await this.BrandRepository.selectALL();
+        
+        // si une erreur esr renvoyée
         if (results instanceof Error) {
-            return process.env.NODE_ENV === "dev"
+        // en environnnement de développement
+        return process.env.NODE_ENV === "dev"
             ? res.status(400).json(results)
             : res.status(400).json({
                 status: 400,
                 message: "Error",
             });
+    }
+        return res.status(200).json({
+            status: 200,
+            message: "OK",
+            data: results,
+        });
+    
+    }
+
+    //CLASSE one
+    
+        // méthodes appelées par le routeur
+    public one = async (req: Request, res: Response): Promise<Response> => { 
+        // req.params permet de récupérer les variables de route
+
+        console.log(req.params);
+        
+
+        const results: RowDataPacket | unknown = await this.BrandRepository.selectOne(req.params);
+        // si une erreur esr renvoyée
+
+        if (results instanceof Error) {
+
+            // en environnnement de développement
+
+            return process.env.NODE_ENV === "dev"
+                ? res.status(400).json(results)
+                : res.status(400).json({
+                    status: 400,
+                    message: "Error",
+                });
         }
         return res.status(200).json({
             status: 200,
             message: "OK",
-                data: results,
-             });
-            };
-        }
-        
+            data: results,
+        });
+    };
 
-
+}
+    
 export default BrandController;
