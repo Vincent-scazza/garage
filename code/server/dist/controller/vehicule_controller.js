@@ -1,10 +1,10 @@
-import BrandRepository from "../repository/brand_repository.js";
-class BrandController {
-    brandRepository = new BrandRepository();
+import VehiculeRepository from "../repository/vehicule_repository.js";
+class VehiculeController {
+    vehiculeRepository = new VehiculeRepository();
     // CLASSE index 
     // méthodes appelées par le routeur
     index = async (req, res) => {
-        const results = await this.brandRepository.selectALL();
+        const results = await this.vehiculeRepository.selectALL();
         // si une erreur esr renvoyée
         if (results instanceof Error) {
             // en environnnement de développement
@@ -26,7 +26,7 @@ class BrandController {
     one = async (req, res) => {
         // req.params permet de récupérer les variables de route
         console.log(req.params);
-        const results = await this.brandRepository.selectOne(req.params);
+        const results = await this.vehiculeRepository.selectOne(req.params);
         // si une erreur esr renvoyée
         if (results instanceof Error) {
             // en environnnement de développement
@@ -44,4 +44,4 @@ class BrandController {
         });
     };
 }
-export default BrandController;
+export default VehiculeController;

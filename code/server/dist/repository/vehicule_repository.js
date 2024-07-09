@@ -1,9 +1,10 @@
 import MysqlService from "../service/mysql_service.js";
-class BrandRepository {
+import BrandRepository from "./brand_repository.js";
+class VehiculeRepository {
     // accéder au service MySQL
     mySQLService = new MysqlService();
     // table principale utilisée par la classe
-    table = 'brand';
+    table = 'vehicule';
     // fonction selectALL
     // sélection de tous les enregistrements
     selectALL = async () => {
@@ -21,8 +22,19 @@ class BrandRepository {
         // exécuter la requête SQL ou récupérer une erreur
         try {
             const results = await connection.execute(query);
+            const fullResults = results.shift();
+            // boucler sur les résultats
+            for (let i = 0; i < fullResults.length; i++) {
+                // récuperer un objet brand
+                const brand = await new BrandRepository().selectOne({
+                    id: fullResults[i].brand_id,
+                });
+                // assigner le resulatat
+                fullResults[i].brand = brand;
+                // console.log(brand);
+            }
             // renvoyer les résultats de la requête
-            return results.shift();
+            return fullResults;
         }
         catch (error) {
             return error;
@@ -41,12 +53,15 @@ class BrandRepository {
     `;
         try {
             const results = await connection.execute(query, data);
-            // shift prermet de récupérer le premier indice d'un array
-            return results.shift().shift();
+            const fullResults = results.shift().shift();
+            const brand = await new BrandRepository().selectOne({
+                id: fullResults.brand_id,
+            });
+            return fullResults;
         }
         catch (error) {
             return error;
         }
     };
 }
-export default BrandRepository;
+export default VehiculeRepository;

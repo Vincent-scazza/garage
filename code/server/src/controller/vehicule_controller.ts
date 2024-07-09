@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { RowDataPacket } from "mysql2/promise";
-import BrandRepository from "../repository/brand_repository.js";
+import VehiculeRepository from "../repository/vehicule_repository.js";
 
-class BrandController {
-    private brandRepository: BrandRepository = new BrandRepository();
+class VehiculeController {
+    private vehiculeRepository: VehiculeRepository = new VehiculeRepository();
 
     // CLASSE index 
 
     // méthodes appelées par le routeur
     public index = async (req: Request, res: Response): Promise<Response> => {
-        const results = await this.brandRepository.selectALL();
+        const results = await this.vehiculeRepository.selectALL();
         
         // si une erreur esr renvoyée
         if (results instanceof Error) {
@@ -38,7 +38,7 @@ class BrandController {
         console.log(req.params);
         
 
-        const results: RowDataPacket | unknown = await this.brandRepository.selectOne(req.params);
+        const results: RowDataPacket | unknown = await this.vehiculeRepository.selectOne(req.params);
         // si une erreur esr renvoyée
 
         if (results instanceof Error) {
@@ -61,4 +61,4 @@ class BrandController {
 
 }
     
-export default BrandController;
+export default VehiculeController;
