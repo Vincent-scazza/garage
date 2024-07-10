@@ -15,7 +15,7 @@
         FOREIGN KEY(brand_id) REFERENCES garage.brand(id)
     );
 
-    CREATE TABLE garage.option(
+    CREATE TABLE garage.options(
         id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(50) NOT NULL UNIQUE
     );
@@ -24,7 +24,7 @@
         vehicule_id TINYINT UNSIGNED,
         option_id TINYINT UNSIGNED,
         FOREIGN KEY(vehicule_id) REFERENCES garage.vehicule(id),
-        FOREIGN KEY(option_id) REFERENCES garage.option(id),
+        FOREIGN KEY(option_id) REFERENCES garage.options(id),
         PRIMARY KEY(vehicule_id, option_id)
     );
 
@@ -48,7 +48,7 @@ VALUES
     (NULL, '2008', 8000, 4)
     ;
 
-    INSERT INTO garage.option
+    INSERT INTO garage.options
     VALUES
         (NULL, 'Climatisation'),
         (NULL, 'Caméra de recul'),
