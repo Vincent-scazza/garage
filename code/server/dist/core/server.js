@@ -10,6 +10,8 @@ class Server {
     router = express.Router();
     // constructeur
     constructor() {
+        // activer le middleware JSON, permet d'accéder à la propriété body de la requete HTTP au format JSON
+        this.router.use(express.json());
         // lier le router a l'application
         this.app.use(this.router);
         this.listRouter();
@@ -25,7 +27,7 @@ class Server {
         this.router.use("/brand", new BrandRouter().getRouter());
         this.router.use("/vehicule", new VehiculeRouter().getRouter());
         // le routeur NotFound doit etre obligatoirement appeleé en dernière position
-        this.router.use('*', new NotFoundRouter().getRouter());
+        this.router.use("*", new NotFoundRouter().getRouter());
     };
     createServer = () => {
         return http.createServer(this.app);

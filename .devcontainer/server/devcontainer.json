@@ -9,6 +9,7 @@
                 "christian-kohler.npm-intellisense",
                 "VisualStudioExptTeam.vscodeintellicode",
                 "biomejs.biome"
+                "rangav.vscode-thunder-client"
             ],
 
             "settings": {

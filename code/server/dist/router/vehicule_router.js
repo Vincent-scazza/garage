@@ -8,8 +8,10 @@ class VehiculeRouter {
              une route est reliée à une URL et à méthode HTTP (GET, PUT, POST, DELETE)
         */
         this.router.get("/", new VehiculeController().index);
-        // route avec une variable de route; procédée d'un : 
+        // route avec une variable de route; procédée d'un :
         this.router.get("/:id", new VehiculeController().one);
+        // route pour créer un véhicule
+        this.router.post("/", new VehiculeController().create);
         return this.router;
     };
 }

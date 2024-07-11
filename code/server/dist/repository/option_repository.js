@@ -3,7 +3,7 @@ class OptionRepository {
     // accéder au service MySQL
     mySQLService = new MysqlService();
     // table principale utilisée par la classe
-    table = 'options';
+    table = "options";
     // fonction selectALL
     // sélection de tous les enregistrements
     selectALL = async () => {
@@ -60,7 +60,7 @@ class OptionRepository {
         try {
             const results = await connection.execute(query, data);
             // shift prermet de récupérer le premier indice d'un array
-            return (results.shift());
+            return results.shift();
         }
         catch (error) {
             return error;

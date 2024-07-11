@@ -5,7 +5,7 @@ class VehiculeRepository {
     // accéder au service MySQL
     mySQLService = new MysqlService();
     // table principale utilisée par la classe
-    table = 'vehicule';
+    table = "vehicule";
     // fonction selectALL
     // sélection de tous les enregistrements
     selectALL = async () => {
@@ -21,9 +21,9 @@ class VehiculeRepository {
          ${this.table}.*,
          GROUP_CONCAT(options.id) AS options_id
     FROM ${process.env.MYSQL_DB}.${this.table}
-    JOIN ${process.env.MYSQL_DB}.vehicule_option
+    LEFT JOIN ${process.env.MYSQL_DB}.vehicule_option
     ON vehicule_option.vehicule_id = vehicule.id
-    JOIN ${process.env.MYSQL_DB}.options
+    LEFT JOIN ${process.env.MYSQL_DB}.options
     ON vehicule_option.option_id = options.id
     GROUP BY ${this.table}.id
     ;
@@ -42,7 +42,7 @@ class VehiculeRepository {
                 fullResults[i].brand = brand;
                 // requete pour récuperer les options
                 const options = await new OptionRepository().selectInlist(fullResults[i].options_id);
-                console.log(options);
+                // console.log(options);
             }
             // renvoyer les résultats de la requête
             return fullResults;
@@ -71,6 +71,45 @@ class VehiculeRepository {
             return fullResults;
         }
         catch (error) {
+            return error;
+        }
+    };
+    create = async (data) => {
+        // connexion
+        const connection = await this.mySQLService.connect();
+        // canal isolé pour la transaction
+        const transaction = await connection.getConnection();
+        try {
+            // demarrer une transaction
+            await transaction.beginTransaction();
+            // première requete
+            let query = `
+            INSERT INTO ${process.env.MYSQL_DB}.${this.table}
+            VALUE
+                (NULL, :model, :price, :brand_id)
+            ;
+        `;
+            await connection.execute(query, data);
+            // récupérer le dernier identifiant inséré
+            query = "SET @vehicule_id = LAST_INSERT_ID();";
+            await connection.execute(query);
+            // insérer les options
+            const values = data.options_id
+                ?.split(",")
+                .map((value) => `(@vehicule_id, ${value})`)
+                .join(",");
+            query = `
+                    INSERT INTO ${process.env.MYSQL_DB}.vehicule_option
+                    VALUES ${values};
+                `;
+            const results = await connection.execute(query);
+            // valider la transaction
+            await transaction.commit();
+            return results;
+        }
+        catch (error) {
+            // annuler la transaction
+            await transaction.rollback();
             return error;
         }
     };
