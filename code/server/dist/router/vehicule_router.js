@@ -1,5 +1,6 @@
 import express from "express";
 import VehiculeController from "../controller/vehicule_controller.js";
+import VehiculeValidatorMiddelware from "../middleware/validator/vehicule_validator_middleware.js";
 class VehiculeRouter {
     router = express.Router();
     getRouter = () => {
@@ -11,10 +12,11 @@ class VehiculeRouter {
         // route avec une variable de route; procédée d'un :
         this.router.get("/:id", new VehiculeController().one);
         // route pour créer un véhicule
-        this.router.post("/", new VehiculeController().create);
-        // route pour créer un véhicule
+        // ajout d'un middleware de validation
+        this.router.post("/", new VehiculeValidatorMiddelware().filter, new VehiculeController().create);
+        // route pour modifier un vehicule
         this.router.put("/:id", new VehiculeController().update);
-        // route pour créer un véhicule
+        // route pour supprimer un véhicule
         this.router.delete("/:id", new VehiculeController().delete);
         return this.router;
     };
