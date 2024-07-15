@@ -157,6 +157,116 @@ class VehiculeRepository {
 			return error;
 		}
 	};
+
+	public update = async (data: Vehicule) => {
+		// connexion
+		const connection: Pool = await this.mySQLService.connect();
+
+		// canal isolé pour la transaction
+		const transaction = await connection.getConnection();
+
+		/* data > {
+            model: 'Corolla 2',
+            price: 20000,
+            brand_id: 1,
+            options_id: '2',
+            id: '10'
+          } */
+
+		try {
+			// démarrer une transaction
+			await transaction.beginTransaction();
+
+			// première requête
+			let query = ` 
+                UPDATE ${process.env.MYSQL_DB}.${this.table}
+                SET
+                    ${this.table}.model = :model,
+                    ${this.table}.price = :price,
+                    ${this.table}.brand_id = :brand_id
+                WHERE
+                    ${this.table}.id = :id
+                ;
+            `;
+
+			await connection.execute(query, data);
+
+			// supprimer les options existantes du véhicule à supprimer
+			query = `
+                DELETE FROM ${process.env.MYSQL_DB}.vehicule_option
+                WHERE vehicule_option.vehicule_id = :id
+                ;
+            `;
+
+			await connection.execute(query, data);
+
+			// insérer les options
+			const values = data.options_id
+				?.split(",")
+				.map((value) => ` (:id, ${value})`)
+				.join(",");
+
+			query = `
+                INSERT INTO ${process.env.MYSQL_DB}.vehicule_option
+                VALUES ${values};
+            `;
+
+			const results = await connection.execute(query, data);
+
+			// valider la transaction
+			await transaction.commit();
+
+			return results;
+		} catch (error) {
+			// annuler la transaction
+			await transaction.rollback();
+
+			return error;
+		}
+	};
+
+	public delete = async (data: Vehicule) => {
+		// connexion
+		const connection: Pool = await this.mySQLService.connect();
+
+		// canal isolé pour la transaction
+		const transaction = await connection.getConnection();
+
+		try {
+			// demarrer une transaction
+			await transaction.beginTransaction();
+
+			// première requete
+			// suppromer les options existantes du véhicule a supprimer
+			let query = `
+            DELETE FROM ${process.env.MYSQL_DB}.vehicule_option
+            WHERE
+			       vehicule_option.vehicule_id = :id
+            ;
+        `;
+
+			await connection.execute(query, data);
+
+			// supprimer le véhicule
+			query = `
+            DELETE FROM ${process.env.MYSQL_DB}.${this.table}
+            WHERE ${this.table}.id = :id
+            ;
+        `;
+
+			const results = await connection.execute(query, data);
+
+			// valider la transaction
+			await transaction.commit();
+
+			return results;
+		} catch (error) {
+			// annuler la transaction
+			await transaction.rollback();
+
+			return error;
+		}
+	};
 }
 
 export default VehiculeRepository;

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { RowDataPacket } from "mysql2/promise";
+import type { Pool, RowDataPacket } from "mysql2/promise";
 import VehiculeRepository from "../repository/vehicule_repository.js";
 
 class VehiculeController {
@@ -80,6 +80,47 @@ class VehiculeController {
 			status: 201,
 			message: "Vehicule created",
 			data: results,
+		});
+	};
+
+	public update = async (req: Request, res: Response): Promise<Response> => {
+		// regrouper l'identifiant contenu dans L-URL (req.paraps) avec les données de mise a jour contenues dans la propriété body de la requete HTTP
+		const data = { ...req.body, id: req.params.id };
+
+		const results = await this.vehiculeRepository.update(data);
+
+		if (results instanceof Error) {
+			return process.env.NODE_ENV === "dev"
+				? res.json(results)
+				: res.status(400).json({
+						status: 400,
+						message: "Error",
+					});
+		}
+
+		return res.status(200).json({
+			status: 200,
+			message: "Vehicule updated",
+		});
+	};
+
+	public delete = async (req: Request, res: Response): Promise<Response> => {
+		const results = await this.vehiculeRepository.delete({
+			id: req.params.id as number,
+		});
+
+		if (results instanceof Error) {
+			return process.env.NODE_ENV === "dev"
+				? res.json(results)
+				: res.status(400).json({
+						status: 400,
+						message: "Error",
+					});
+		}
+
+		return res.status(200).json({
+			status: 200,
+			message: "Vehicule deleted",
 		});
 	};
 }

@@ -12,6 +12,10 @@ class VehiculeRouter {
         this.router.get("/:id", new VehiculeController().one);
         // route pour créer un véhicule
         this.router.post("/", new VehiculeController().create);
+        // route pour créer un véhicule
+        this.router.put("/:id", new VehiculeController().update);
+        // route pour créer un véhicule
+        this.router.delete("/:id", new VehiculeController().delete);
         return this.router;
     };
 }
