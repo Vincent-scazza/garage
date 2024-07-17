@@ -7,7 +7,7 @@ class NotFoundRouter {
              lister les routes associées au préfixe du routeur
              une route est reliée à une URL et à méthode HTTP (GET, PUT, POST, DELETE)
         */
-        this.router.get('/', new NotFoundController().index);
+        this.router.get("/", new NotFoundController().index);
         return this.router;
     };
 }

@@ -28,6 +28,20 @@
         PRIMARY KEY(vehicule_id, option_id)
     );
 
+
+    CREATE TABLE garage.roles(
+        id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(50) NOT NULL UNIQUE
+    );
+
+    CREATE TABLE garage.user(
+        id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(50) NOT NULL UNIQUE,
+        password VARCHAR(150) NOT NULL ,
+        roles_id TINYINT UNSIGNED NOT NULL,
+        FOREIGN KEY(roles_id) REFERENCES garage.roles(id)
+    );
+
 INSERT INTO garage.brand
 VALUES
     (NULL, 'Toyota'),
@@ -70,9 +84,20 @@ VALUES
         (5, 1),
         (6, 1),
         (6, 2),
-        (7, 3),
+        (7, 3),             
         (8, 1)
     ;
 
     
-       
+INSERT INTO garage.roles
+VALUES
+    (NULL, 'admin'),
+    (NULL, 'user')
+    ;
+
+-- admin@admin.fr admin / user@user.com user
+INSERT INTO garage.user
+VALUES
+    (NULL, 'admin@admin.fr', '$argon2i$v=19$m=16,t=2,p=1$T0JpcmVPM1VPSFpKTURXRQ$XfL7XikxkKe39VdOzHNRNQ', 1),
+    (NULL, 'user@user.com', '$argon2i$v=19$m=16,t=2,p=1$QlBsMHNmNDR1TXIzU2RTRQ$+QoSQy7thet+gHIZSyF0Ig', 2)
+;

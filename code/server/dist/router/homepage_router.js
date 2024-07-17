@@ -7,7 +7,7 @@ class HomepageRouter {
              lister les routes associées au préfixe du routeur
              une route est reliée à une URL et à méthode HTTP (GET, PUT, POST, DELETE)
         */
-        this.router.get('/', new HomepageController().index);
+        this.router.get("/", new HomepageController().index);
         return this.router;
     };
 }
