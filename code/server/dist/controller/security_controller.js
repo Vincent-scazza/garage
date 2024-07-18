@@ -1,5 +1,6 @@
 import SecurityRepository from "../repository/security_repository.js";
 import argon2 from 'argon2';
+import jwt from "jsonwebtoken";
 class SecurityController {
     securityRepository = new SecurityRepository();
     // méthodes appelées par le routeur
@@ -52,6 +53,40 @@ class SecurityController {
             status: 200,
             message: "OK",
             data: user,
+        });
+    };
+    auth = async (req, res) => {
+        // récupere l'utilisateur par son email
+        const user = await this.securityRepository.getUserByEmail(req.body);
+        // console.log(user);
+        // si l'utilisateur nexiste pas
+        if (user instanceof Error) {
+            return res.status(400).json({
+                status: 400,
+                message: "error user does not exist",
+            });
+        }
+        // // vérification du mot de passe : comparer le mot de passe saisi avec le hash contenu dans la base de données
+        const isPasswordIsValid = await argon2.verify(user.password, req.body.password);
+        if (!isPasswordIsValid) {
+            return res.status(403).json({
+                status: 403,
+                message: "Forbidden",
+            });
+        }
+        // génerer un jeton sécurisé (JSON WEB TOKEN)
+        const token = jwt.sign({
+            user: user,
+        }, process.env.SECRET, {
+            expiresIn: 30,
+        });
+        // si l'utilisateur existe est que le mdp est correcte
+        return res.status(200).json({
+            status: 200,
+            message: "OK",
+            data: {
+                token: token,
+            },
         });
     };
 }

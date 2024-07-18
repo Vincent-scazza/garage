@@ -1,6 +1,7 @@
 import express, { Request, Response, type Router } from "express";
 import VehiculeController from "../controller/vehicule_controller.js";
 import VehiculeValidatorMiddelware from "../middleware/validator/vehicule_validator_middleware.js";
+import AuthorizationMiddleware from "../middleware/security/authorizationMiddleware.js";
 
 class VehiculeRouter {
 	private router: Router = express.Router();
@@ -19,6 +20,7 @@ class VehiculeRouter {
 		// ajout d'un middleware de validation
 		this.router.post(
 			"/",
+			new AuthorizationMiddleware().Authorize(["admin"]),
 			new VehiculeValidatorMiddelware().filter,
 			new VehiculeController().create,
 		);
