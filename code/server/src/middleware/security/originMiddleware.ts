@@ -17,9 +17,9 @@ class OriginnMiddleware {
 
 		// vérifier la présence de l'origine dans la lsite
 		if (
-			listOrigins.indexOf(origin) === -1
-			// && hostname !== 'localhost'
-			// && hostname !== '127.0.0.1'
+			// listOrigins.indexOf(origin) === -1 &&
+			hostname !== "localhost" &&
+			hostname !== "127.0.0.1"
 		) {
 			return res.status(403).json({
 				status: 403,

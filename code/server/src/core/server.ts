@@ -25,15 +25,14 @@ class Server {
 		this.router.use(express.json());
 
 		// gérer CORS
-		// this.router.use(
-		// 	cors({
-		// 		origin: process.env.ORIGINS?.split(","),
-
-		// }),
-		// );
+		this.router.use(
+			cors({
+				origin: process.env.ORIGINS?.split(","),
+			}),
+		);
 
 		// vérifier l'origine de ma requete
-		// this.router.use(new OriginnMiddleware().check);
+		this.router.use(new OriginnMiddleware().check);
 
 		// lier le router a l'application
 		this.app.use(this.router);

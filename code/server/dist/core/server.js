@@ -5,6 +5,8 @@ import NotFoundRouter from "../router/not_found_router.js";
 import BrandRouter from "../router/brand_router.js";
 import VehiculeRouter from "../router/vehicule_router.js";
 import SecurityRouter from "../router/security_router.js";
+import cors from "cors";
+import OriginnMiddleware from "../middleware/security/originMiddleware.js";
 class Server {
     // propriétés
     app = express();
@@ -14,13 +16,11 @@ class Server {
         // activer le middleware JSON, permet d'accéder à la propriété body de la requete HTTP au format JSON
         this.router.use(express.json());
         // gérer CORS
-        // this.router.use(
-        // 	cors({
-        // 		origin: process.env.ORIGINS?.split(","),
-        // }),
-        // );
+        this.router.use(cors({
+            origin: process.env.ORIGINS?.split(","),
+        }));
         // vérifier l'origine de ma requete
-        // this.router.use(new OriginnMiddleware().check);
+        this.router.use(new OriginnMiddleware().check);
         // lier le router a l'application
         this.app.use(this.router);
         this.listRouter();
