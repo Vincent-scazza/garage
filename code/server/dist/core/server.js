@@ -7,6 +7,7 @@ import VehiculeRouter from "../router/vehicule_router.js";
 import SecurityRouter from "../router/security_router.js";
 import cors from "cors";
 import OriginnMiddleware from "../middleware/security/originMiddleware.js";
+import ContactRouter from "../router/contact_router.js";
 class Server {
     // propriétés
     app = express();
@@ -37,6 +38,7 @@ class Server {
         this.router.use("/vehicule", new VehiculeRouter().getRouter());
         this.router.use("/brand", new BrandRouter().getRouter());
         this.router.use("/", new SecurityRouter().getRouter());
+        this.router.use("/contact", new ContactRouter().getRouter());
         // le routeur NotFound doit etre obligatoirement appeleé en dernière position
         this.router.use("*", new NotFoundRouter().getRouter());
     };
