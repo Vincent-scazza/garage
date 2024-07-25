@@ -13,7 +13,7 @@ class VehiculeValidatorMiddelware {
                 data: validation.details.map((value) => value.message),
             });
         }
-        console.log(validation);
+        //console.log(validation);
         // passer au middleware
         next();
     };

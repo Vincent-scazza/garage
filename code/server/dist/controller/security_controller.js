@@ -1,5 +1,5 @@
 import SecurityRepository from "../repository/security_repository.js";
-import argon2 from 'argon2';
+import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 class SecurityController {
     securityRepository = new SecurityRepository();
@@ -32,7 +32,7 @@ class SecurityController {
     login = async (req, res) => {
         // récupere l'utilisateur par son email
         const user = await this.securityRepository.getUserByEmail(req.body);
-        console.log(user);
+        // console.log(user);
         // si l'utilisateur nexiste pas
         if (user instanceof Error) {
             return res.status(400).json({

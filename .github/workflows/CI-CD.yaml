@@ -28,4 +28,11 @@ jobs:
             run: |
               cd code/server
               npm ci
+
+        -
+            name: Compiler TypeScript en JavaSript
+            run: |
+              cd code/server
+              npm -rf dist
+              npm run compile
         

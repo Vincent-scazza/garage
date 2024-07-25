@@ -25,7 +25,7 @@ class BrandController {
     // méthodes appelées par le routeur
     one = async (req, res) => {
         // req.params permet de récupérer les variables de route
-        console.log(req.params);
+        // console.log(req.params);
         const results = await this.brandRepository.selectOne(req.params);
         // si une erreur esr renvoyée
         if (results instanceof Error) {

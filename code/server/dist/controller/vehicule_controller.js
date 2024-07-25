@@ -5,6 +5,7 @@ class VehiculeController {
     // méthodes appelées par le routeur
     index = async (req, res) => {
         const results = await this.vehiculeRepository.selectALL();
+        // console.log(results);
         // si une erreur esr renvoyée
         if (results instanceof Error) {
             // en environnnement de développement
@@ -25,7 +26,7 @@ class VehiculeController {
     // méthodes appelées par le routeur
     one = async (req, res) => {
         // req.params permet de récupérer les variables de route
-        console.log(req.params);
+        // console.log(req.params);
         const results = await this.vehiculeRepository.selectOne(req.params);
         // si une erreur esr renvoyée
         if (results instanceof Error) {
@@ -44,7 +45,7 @@ class VehiculeController {
         });
     };
     create = async (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         // req.body permet derécuperer les données contenues dans la propriété body de la requete HTTP
         const results = await this.vehiculeRepository.create(req.body);
         // req.params permet de récupérer les variables de route

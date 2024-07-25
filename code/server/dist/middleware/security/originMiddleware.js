@@ -8,8 +8,7 @@ class OriginnMiddleware {
         // récuperer l'origine
         const origin = req.get("origin");
         // liste des origines autorisées
-        // const listOrigins = (process.env.ORIGINS as string).split(",");
-        const listOrigins = ["http://localhost:3000"];
+        const listOrigins = process.env.ORIGINS.split(",");
         // console.log(process.env);
         // vérifier la présence de l'origine dans la lsite
         if (listOrigins.indexOf(origin) === -1 &&
