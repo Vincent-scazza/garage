@@ -33,6 +33,6 @@ jobs:
             name: Compiler TypeScript en JavaSript
             run: |
               cd code/server
-              npm -rf dist
+              rm -rf dist
               npm run compile
         
