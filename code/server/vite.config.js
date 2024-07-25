@@ -9,6 +9,11 @@ export default defineConfig(({ command, mode }) => {
 
 	// console.log(process.env);
 
+	// avec GitHub Actions, modifier l'hote MySQL
+	if (process.env.GITHUB_ACTION) {
+		process.env.MYSQL_HOST = "127.0.0.1";
+	}
+
 	return {
 		// vite config
 		define: {
