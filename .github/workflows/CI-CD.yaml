@@ -8,7 +8,7 @@ on: workflow_dispatch
 jobs:
 
     # nom de la tache
-    coucou:
+    CI:
 
         # exécuteur / runner
         runs-on: ubuntu-latest
@@ -16,6 +16,10 @@ jobs:
         # étape / step
         steps:
         -
-            name: Hello
+            name: Récupérer le dépot Github
+
+            # éxécuter une action prédéfinie
+            uses: actions/checkout@v4
+
             # éxecuter une commande personelle
-            run: echo 'coucou'
+            # run: echo 'coucou'
