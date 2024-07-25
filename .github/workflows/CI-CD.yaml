@@ -21,5 +21,11 @@ jobs:
             # éxécuter une action prédéfinie
             uses: actions/checkout@v4
 
+        -
+            name: Installer les dépendances de Node
+
             # éxecuter une commande personelle
-            # run: echo 'coucou'
+            run: |
+              cd code/server
+              npm ci
+        
