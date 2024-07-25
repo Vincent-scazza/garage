@@ -8,12 +8,15 @@ class OriginnMiddleware {
         // récuperer l'origine
         const origin = req.get("origin");
         // liste des origines autorisées
-        const listOrigins = process.env.ORIGINS.split(",");
+        // const listOrigins = (process.env.ORIGINS as string).split(",");
+        const listOrigins = ["http://localhost:3000"];
+        // console.log(process.env);
         // vérifier la présence de l'origine dans la lsite
-        if (
-        // listOrigins.indexOf(origin) === -1 &&
-        hostname !== "localhost" &&
-            hostname !== "127.0.0.1") {
+        if (listOrigins.indexOf(origin) === -1 &&
+            origin !== undefined
+        // hostname !== "localhost" &&
+        // hostname !== "127.0.0.1"
+        ) {
             return res.status(403).json({
                 status: 403,
                 message: "forbiden",

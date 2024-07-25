@@ -1,7 +1,7 @@
 import BrandRepository from "../repository/brand_repository.js";
 class BrandController {
     brandRepository = new BrandRepository();
-    // CLASSE index 
+    // CLASSE index
     // méthodes appelées par le routeur
     index = async (req, res) => {
         const results = await this.brandRepository.selectALL();

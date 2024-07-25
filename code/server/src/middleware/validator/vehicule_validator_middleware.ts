@@ -20,7 +20,7 @@ class VehiculeValidatorMiddelware {
 				),
 			});
 		}
-		console.log(validation);
+		//console.log(validation);
 
 		// passer au middleware
 		next();

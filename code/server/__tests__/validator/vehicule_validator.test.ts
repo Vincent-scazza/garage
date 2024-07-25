@@ -57,4 +57,15 @@ describe("vehicule validator tests suite", () => {
 		// assertion
 		expect(actual).toBeInstanceOf(ValidationError);
 	});
+	// troisième test
+	it("should returns an error", async () => {
+		// données renvoyant une erreur
+		const falseData = { ...data, brand_id: -100, brand: "coucouc" };
+
+		// comment obtenir la valeur attendue
+		const actual = await sut.validate(falseData);
+
+		// assertion
+		expect(actual).toBeInstanceOf(ValidationError);
+	});
 });

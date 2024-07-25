@@ -1,0 +1,106 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "garage requete",
+    "collectionId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+    "dateExported": "2024-07-24T07:26:26.723Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "55d9aa33-ec9b-46d4-8fbb-5fd4436bb30a",
+            "colId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+            "containerId": "",
+            "name": "http://127.0.0.1:3000/contact",
+            "url": "http://127.0.0.1:3000/contact",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-07-24T07:23:43.554Z",
+            "modified": "2024-07-24T07:23:43.554Z",
+            "headers": []
+        },
+        {
+            "_id": "8ba6e5c8-fd0e-439f-b4eb-95b18385a1e5",
+            "colId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+            "containerId": "",
+            "name": "http://127.0.0.1:3000/vehicule",
+            "url": "http://127.0.0.1:3000/vehicule",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-24T07:23:54.546Z",
+            "modified": "2024-07-24T07:23:54.546Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJwYXNzd29yZCI6IiRhcmdvbjJpJHY9MTkkbT0xNix0PTIscD0xJFFsQnNNSE5tTkRSMVRYSXpVMlJUUlEkK1FvU1F5N3RoZXQrZ0hJWlN5RjBJZyIsInJvbGVzX2lkIjoyLCJyb2xlIjp7ImlkIjoyLCJuYW1lIjoidXNlciJ9fSwiaWF0IjoxNzIxMjk3NzI1LCJleHAiOjE3MjEyOTc3NTV9.X3uGcgOBP0lXwhsJ7Nm2EtdwvGnohlDNR1zEzTQdZYA"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"model\": \"hondo\",\n  \"price\": 2000,\n  \"brand_id\": 1,\n  \"options_id\": \"1,3\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "75815011-5f63-46d7-96f5-bce6612760d5",
+            "colId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+            "containerId": "",
+            "name": "http://127.0.0.1:3000/auth",
+            "url": "http://127.0.0.1:3000/auth",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-24T07:23:58.940Z",
+            "modified": "2024-07-24T07:23:58.940Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"user@user.com\",\n  \"password\": \"user\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4dd1b194-318f-4c95-a63a-bb03c6703086",
+            "colId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+            "containerId": "",
+            "name": "http://127.0.0.1:3000/login",
+            "url": "http://127.0.0.1:3000/login",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-07-24T07:24:04.842Z",
+            "modified": "2024-07-24T07:24:04.842Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"donald@trump.us\",\n  \"password\": \"biden\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6d7d811c-d5ee-4c3f-ac43-d00c2cb0a0c7",
+            "colId": "08ae3909-d20e-4652-ae4c-7816a7080655",
+            "containerId": "",
+            "name": "http://127.0.0.1:3000/register",
+            "url": "http://127.0.0.1:3000/register",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-07-24T07:24:11.325Z",
+            "modified": "2024-07-24T07:24:11.325Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"donald@trump.us\",\n  \"password\": \"biden\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "aYcEprxINhadoYHk0PnoCh8bfoGUtFaG6_Iw65HTYU3tVFCBBdEtzgcWz3Q67WTUYnDdx7fxoXLcsJzWJqIAtA"
+}

@@ -4,10 +4,11 @@ import dotenv from "dotenv";
 export default defineConfig(({ command, mode }) => {
 	//  charger le fichier d'environnement de test
 	dotenv.config({
-		path: ".env.test,",
+		path: ".env.test",
 	});
 
-	console.log(process.env);
+	// console.log(process.env);
+
 	return {
 		// vite config
 		define: {
@@ -16,7 +17,7 @@ export default defineConfig(({ command, mode }) => {
 		test: {
 			coverage: {
 				reportsDirectory: "__tests__/__coverage__",
-				exclude: ["__tests__", "vite.config.js", "src/index.ts"],
+				exclude: ["__tests__", "dist", "vite.config.js", "src/index.ts"],
 			},
 		},
 	};
