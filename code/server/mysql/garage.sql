@@ -3,7 +3,7 @@
     CREATE DATABASE garage;
 
     CREATE TABLE garage.brand(
-        id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,                    
         name VARCHAR(50) NOT NULL UNIQUE 
     );
 

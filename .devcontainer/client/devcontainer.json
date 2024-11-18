@@ -8,7 +8,8 @@
             "extensions": [
                 "christian-kohler.npm-intellisense",
                 "VisualStudioExptTeam.vscodeintellicode",
-                "biomejs.biome"
+                "biomejs.biome",
+                "dsznajder.es7-react-js-snippets"
             ],
 
             "settings": {

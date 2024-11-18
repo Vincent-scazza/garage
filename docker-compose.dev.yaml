@@ -1,4 +1,15 @@
 services:
+# service gérant le client
+  client:
+    image: node:22
+    ports:
+      - 5173:5173 # port de développement
+      - 4173:4173 #port de pré-production
+    volumes:
+      - ./code/client:/app
+    working_dir: /app
+    #commande pour garder le conteneur ouvert, vu que on va utiliser le terminale
+    tty: true
 #service gérant le serveur
   server:
     image: node:22

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Motion - Location de voitures facile et rapide</title>
+    <meta name="description" content="Rent Motion - Louez une voiture en toute simplicité pour vos déplacements. Rapide, pratique et conçu pour répondre aux besoins de mobilité modernes.">
+    <meta name="author" content="Vincent Scazza">
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+</head>
+<body>
+
+    <!-- En-tête du site -->
+    <header>
+        <nav class="navbar container">
+            <a href="#" class="logo">Rent<span>Motion</span></a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="bx bx-menu"></i></label>
+            <ul class="nav-links">
+                <li><a href="#vehicles">Nos Véhicules</a></li>
+                <li><a href="#reviews">Avis Clients</a></li>
+                <li><a href="#location">Localisation</a></li>
+                <li><button class="login-btn" onclick="toggleLogin()">Se connecter</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal du site -->
+    <main>
+        <!-- Section du carrousel de véhicules -->
+        <section id="vehicles" class="carousel-section container">
+            <h2>Nos Véhicules</h2>
+            <div class="carousel">
+                <!-- Utilisation de l'élément article pour chaque véhicule -->
+                <article class="carousel-item">
+                    <img src="car1.jpg" alt="Véhicule 1">
+                    <div class="carousel-info">
+                        <h3>Véhicule 1</h3>
+                        <p>À partir de 30€/jour</p>
+                        <p>Options: GPS, Climatisation, Automatique</p>
+                    </div>
+                </article>
+                <article class="carousel-item">
+                    <img src="car2.jpg" alt="Véhicule 2">
+                    <div class="carousel-info">
+                        <h3>Véhicule 2</h3>
+                        <p>À partir de 45€/jour</p>
+                        <p>Options: Bluetooth, Sièges chauffants, Manuelle</p>
+                    </div>
+                </article>
+                <article class="carousel-item">
+                    <img src="car3.jpg" alt="Véhicule 3">
+                    <div class="carousel-info">
+                        <h3>Véhicule 3</h3>
+                        <p>À partir de 60€/jour</p>
+                        <p>Options: Cuir, Toit ouvrant, Assistance conduite</p>
+                    </div>
+                </article>
+                <!-- Ajoutez plus de véhicules si nécessaire -->
+            </div>
+        </section>
+
+        <!-- Section des avis clients -->
+        <section id="reviews" class="reviews-section container">
+            <h2>Ce que disent nos clients</h2>
+            <div class="reviews-container">
+                <!-- Utilisation de l'élément blockquote pour les avis -->
+                <blockquote class="review">
+                    <p>"Excellent service et voiture très propre. Très pratique pour le transfert aéroport!"</p>
+                    <cite>- Jean Dupont</cite>
+                </blockquote>
+                <blockquote class="review">
+                    <p>"Réservation rapide et efficace, parfait pour un week-end en famille."</p>
+                    <cite>- Marie Leclerc</cite>
+                </blockquote>
+                <blockquote class="review">
+                    <p>"Grande disponibilité de voitures, avec des options intéressantes. Je recommande!"</p>
+                    <cite>- Ahmed Ben Ali</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Section de la carte Google -->
+        <section id="location" class="map-section container">
+            <h2>Notre Localisation</h2>
+            <p>Trouvez-nous facilement à proximité de l'aéroport.</p>
+            <!-- Utilisation de figure pour la carte -->
+            <figure id="map-container">
+                <div id="map"></div>
+                <figcaption>Localisation de Rent Motion</figcaption>
+            </figure>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 Rent Motion. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap"></script>
+</body>
+</html>
