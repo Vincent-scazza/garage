@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own My Car </title>
+    <meta name="description" content="Rent Motion - Louez une voiture en toute simplicité pour vos déplacements. Rapide, pratique et conçu pour répondre aux besoins de mobilité modernes.">
+    <meta name="author" content="Vincent Scazza">
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Icônes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+</head>
+<body>
+
+    <!-- En-tête du site -->
+    <header>
+        <nav class="navbar container">
+            <!-- Menu Burger -->
+            <div class="menu-burger" id="menu-burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        <nav class="navbar container">
+            <!-- Logo à gauche -->
+            <a href="#" class="logo">OWN<span>MY CAR</span></a>
+    
+            <!-- Bouton de switch pour le mode clair/sombre -->
+            <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+                <i class="bx bx-sun" id="theme-icon"></i>
+            </div>
+        </nav>
+        
+        <ul class="nav-links" id="nav-links">
+            <li class="close-btn" onclick="toggleMenu()">&times;</li> <!-- Bouton de fermeture -->
+            <li><a href="#vehicles">Nos Véhicules</a></li>
+            <li><a href="#reviews">Avis Clients</a></li>
+            <li><a href="#reviews">contact</a></li>
+            <li><button class="login-btn" onclick="togglePopup()">Se connecter</button></li>
+        </ul>
+        
+        </nav>
+    </header>
+    <!-- Contenu principal du site -->
+    <main>
+        <section id="contact-form-section" class="contact-form-section">
+            <div class="contact-form-container">
+                <h2>Envoyez-nous un message</h2>
+                <p>Vous avez des questions ou des suggestions ? N'hésitez pas à nous écrire, nous vous répondrons rapidement.</p>
+                <form action="submit_form.php" method="POST" class="contact-form">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
+        
+                    <label for="email">E-mail :</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre e-mail" required>
+        
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+        
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </form>
+            </div>
+        </section>
+            </article>
+
+            <!-- Article : Informations de contact -->
+            <article class="contact-info">
+                <h2>Informations de contact</h2>
+                <p><i class="bx bx-map"></i> 123 Rue des Voitures, Paris, France</p>
+                <p><i class="bx bx-phone"></i> +33 1 23 45 67 89</p>
+                <p><i class="bx bx-envelope"></i> contact@ownmycar.com</p>
+                <p><i class="bx bx-time"></i> Lundi - Vendredi : 9h00 - 18h00</p>
+            </article>
+        </section>
+
+
+        <!-- Pop-up de connexion/inscription -->
+        <div id="auth-popup" class="popup hidden">
+            <div class="popup-content">
+                <span class="close-btn" onclick="togglePopup()">×</span>
+                <div class="popup-forms">
+
+                    
+                    <div id="cookie-popup" class="cookie-popup hidden">
+                        <div class="cookie-popup-content">
+                            <p>Nous utilisons des cookies pour vous garantir la meilleure expérience sur notre site. En poursuivant votre navigation, vous acceptez leur utilisation.</p>
+                            <div class="cookie-popup-buttons">
+                                <button id="accept-cookies" class="cookie-btn accept">Accepter</button>
+                                <button id="decline-cookies" class="cookie-btn decline">Refuser</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulaire de connexion -->
+                    <form id="login-form" class="auth-form">
+                        <h2>Connexion</h2>
+                        <input type="email" placeholder="Adresse email" required>
+                        <input type="password" placeholder="Mot de passe" required>
+                        <button type="submit" class="popup-btn">Se connecter</button>
+                        <p class="popup-link" onclick="showForgotPassword()">Mot de passe oublié ?</p>
+                        <p class="popup-link">Pas encore inscrit ? <span onclick="showSignup()">S'inscrire</span></p>
+                    </form>
+        
+                    <!-- Formulaire d'inscription -->
+                    <form id="signup-form" class="auth-form hidden">
+                        <h2>Inscription</h2>
+                        <input type="text" placeholder="Nom complet" required>
+                        <input type="email" placeholder="Adresse email" required>
+                        <input type="password" placeholder="Mot de passe" required>
+                        <button type="submit" class="popup-btn">S'inscrire</button>
+                        <p class="popup-link">Déjà un compte ? <span onclick="showLogin()">Se connecter</span></p>
+                    </form>
+        
+                    <!-- Formulaire "Mot de passe oublié" -->
+                    <form id="forgot-password-form" class="auth-form hidden">
+                        <h2>Mot de passe oublié</h2>
+                        <input type="email" placeholder="Adresse email" required>
+                        <button type="submit" class="popup-btn">Envoyer le lien</button>
+                        <p class="popup-link" onclick="showLogin()">Retour à la connexion</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Colonne 1 : Informations sur l'entreprise -->
+            <div class="footer-column">
+                <h3>Own My Car</h3>
+                <p>Nous contacter</p>
+                <img src="assests/img/Capture d'écran 2024-11-15 155309.png" alt="Logo Own My Car" class="footer-logo">
+            </div>
+    
+            <!-- Colonne 2 : Réseaux sociaux -->
+            <div class="footer-column">
+                <h3>Nous suivre</h3>
+                <ul>
+                    <li><a href="#"><i class="bx bxl-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bx bxl-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
+    
+            <!-- Colonne 3 : Liens supplémentaires -->
+            <div class="footer-column">
+                <h3>Autres</h3>
+                <ul>
+                    <li><a href="#">Mentions Légales</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">Gestion des cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Bas de page -->
+        <div class="footer-bottom">
+            <p>&copy; Own My Car 2024 Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap"></script>
+</body>
+</html>

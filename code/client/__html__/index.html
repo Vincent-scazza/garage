@@ -3,63 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rent Motion - Location de voitures facile et rapide</title>
-    <meta name="description" content="Rent Motion - Louez une voiture en toute simplicité pour vos déplacements. Rapide, pratique et conçu pour répondre aux besoins de mobilité modernes.">
+    <title>Own My Car</title>
+    <meta name="description" content="Own My Car">
     <meta name="author" content="Vincent Scazza">
     <!-- Feuilles de style -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <script src="qrcode.min.js" defer></script>
     <!-- Icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
     <!-- En-tête du site -->
     <header>
         <nav class="navbar container">
-            <a href="#" class="logo">Rent<span>Motion</span></a>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon"><i class="bx bx-menu"></i></label>
-            <ul class="nav-links">
+            <!-- Menu Burger -->
+            <div class="menu-burger" id="menu-burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Logo -->
+            <h1><a href="#" class="logo"> OWN <span> MY CAR</span></a></h1>
+
+            <!-- Bouton de switch pour le mode clair/sombre -->
+            <div class="theme-switch" id="theme-switch" onclick="toggleTheme()">
+                <i class="bx bx-sun" id="theme-icon"></i>
+            </div>
+
+            <!-- Navigation principale -->
+            <ul class="nav-links" id="nav-links">
+                <li class="close-btn" onclick="toggleMenu()">&times;</li>
                 <li><a href="#vehicles">Nos Véhicules</a></li>
                 <li><a href="#reviews">Avis Clients</a></li>
-                <li><a href="#location">Localisation</a></li>
-                <li><button class="login-btn" onclick="toggleLogin()">Se connecter</button></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="login-btn" onclick="togglePopup()">Se connecter</button></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenu principal du site -->
+    <!-- Contenu principal -->
     <main>
-        <!-- Section du carrousel de véhicules -->
-        <section id="vehicles" class="carousel-section container">
+        <!-- Section des marques populaires -->
+        <section id="popular-brands" class="brands-section container">
+            <h2>Les marques les plus populaires</h2>
+            <div class="brands-carousel">
+                <article class="brand" onclick="filterByBrand('Audi')">
+                    <h3>Audi</h3>
+                    <img src="assests/img/logo_Audi.png" alt="Logo Audi">
+                    
+                </article>
+                <article class="brand" onclick="filterByBrand('BMW')">
+                    <h3>BMW</h3>
+                    <img src="assests/img/BMW-Logo.jpg" alt="Logo BMW">
+                   
+                </article>
+                <article class="brand" onclick="filterByBrand('Mercedes')">
+                    <h3>Mercedes</h3>
+                    <img src="assests/img/Logo_Mercedes.jpg" alt="Logo Mercedes">
+                   
+                </article>
+                <article class="brand" onclick="filterByBrand('Peugeot')">
+                    <h3>Peugeot</h3>
+                    <img src="assests/img/peugeot_logo.webp" alt="Logo Peugeot">
+             
+                </article>
+                <article class="brand" onclick="filterByBrand('Renault')">
+                    <h3>Renault</h3>
+                    <img src="assests/img/logo-Renault-.jpg" alt="Logo Renault">
+                    
+                </article>
+            </div>
+        </section>
+
+        <!-- Section du carousel des véhicules -->
+        <section class="carousel-section container">
             <h2>Nos Véhicules</h2>
             <div class="carousel">
-                <!-- Utilisation de l'élément article pour chaque véhicule -->
-                <article class="carousel-item">
-                    <img src="car1.jpg" alt="Véhicule 1">
-                    <div class="carousel-info">
-                        <h3>Véhicule 1</h3>
-                        <p>À partir de 30€/jour</p>
-                        <p>Options: GPS, Climatisation, Automatique</p>
-                    </div>
-                </article>
-                <article class="carousel-item">
-                    <img src="car2.jpg" alt="Véhicule 2">
-                    <div class="carousel-info">
-                        <h3>Véhicule 2</h3>
-                        <p>À partir de 45€/jour</p>
-                        <p>Options: Bluetooth, Sièges chauffants, Manuelle</p>
-                    </div>
-                </article>
-                <article class="carousel-item">
-                    <img src="car3.jpg" alt="Véhicule 3">
-                    <div class="carousel-info">
-                        <h3>Véhicule 3</h3>
-                        <p>À partir de 60€/jour</p>
-                        <p>Options: Cuir, Toit ouvrant, Assistance conduite</p>
-                    </div>
-                </article>
-                <!-- Ajoutez plus de véhicules si nécessaire -->
+                <div class="carousel-track">
+                    <article class="carousel-item">
+                        <img src="assests/img/audi-a6-sedan-front-view.png" alt="Véhicule Audi A6">
+                        <h3>Audi A6</h3>
+                        <p>À partir de 4 200 €</p>
+                        <img class="qrcode" src="assests/img/vehicle1_qrcode.png" alt="QR Code pour Audi A6">
+                        <i class="bx bx-heart like-icon" aria-label="Ajouter aux favoris" role="button" tabindex="0"></i>
+                    </article>
+
+                    <article class="carousel-item">
+                        <img src="assests/img/BMW_annonce.png" alt="Véhicule BMW">
+                        <h3>BMW Serie 2</h3>
+                        <p>À partir de 12 000 €</p>
+                        <img class="qrcode" src="assests/img/qrcode_localhost.png" alt="QR Code pour Audi A6">
+                        <i class="bx bx-heart like-icon" aria-label="Ajouter aux favoris" role="button" tabindex="0"></i>
+                    </article>
+
+                    <article class="carousel-item">
+                        <img src="assests/img/mercedes_g.jpeg" alt="Véhicule Mercedes GLC">
+                        <h3>Mercedes classe G</h3>
+                        <p>À partir de 37 000 €</p>
+                        <img class="qrcode" src="assests/img/vehicle1_qrcode.png" alt="QR Code pour Audi A6">
+                        <i class="bx bx-heart like-icon" aria-label="Ajouter aux favoris" role="button" tabindex="0"></i>             
+                    </article>
+
+                    <article class="carousel-item">
+                        <img src="assests/img/free-photo-of-suv-dans-un-paysage-d-automne-avec-des-ruines-de-chateau.jpeg" alt="Véhicule Peugeot 208">
+                        <h3>Peugeot 3008</h3>
+                        <p>À partir de 10 000 €</p>
+                        <img class="qrcode" src="assests/img/vehicle1_qrcode.png" alt="QR Code pour Audi A6">
+                        <i class="bx bx-heart like-icon" aria-label="Ajouter aux favoris" role="button" tabindex="0"></i>
+                    </article>
+
+                    <article class="carousel-item">
+                        <img src="assests/img/clio.jpg" alt="Véhicule Renault">
+                        <h3>Renault Mégane</h3>
+                        <p>À partir de 2 100 €</p>
+                        <img class="qrcode" src="assests/img/vehicle1_qrcode.png" alt="QR Code pour Audi A6">
+                    <i class="bx bx-heart like-icon" aria-label="Ajouter aux favoris" role="button" tabindex="0"></i>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -67,13 +135,12 @@
         <section id="reviews" class="reviews-section container">
             <h2>Ce que disent nos clients</h2>
             <div class="reviews-container">
-                <!-- Utilisation de l'élément blockquote pour les avis -->
                 <blockquote class="review">
-                    <p>"Excellent service et voiture très propre. Très pratique pour le transfert aéroport!"</p>
+                    <p>Un excellent rapport qualité-prix ! J'ai pu trouver une voiture adaptée à mon budget en quelques clics. Bravo pour la simplicité de la plateforme !</p>
                     <cite>- Jean Dupont</cite>
                 </blockquote>
                 <blockquote class="review">
-                    <p>"Réservation rapide et efficace, parfait pour un week-end en famille."</p>
+                    <p>"Une équipe très professionnelle et disponible. Ils ont répondu à toutes mes questions et ont su me conseiller pour mon choix de véhicule."</p>
                     <cite>- Marie Leclerc</cite>
                 </blockquote>
                 <blockquote class="review">
@@ -82,33 +149,129 @@
                 </blockquote>
             </div>
         </section>
-
-        <!-- Section de la carte Google -->
-        <section id="location" class="map-section container">
-            <h2>Notre Localisation</h2>
-            <p>Trouvez-nous facilement à proximité de l'aéroport.</p>
-            <!-- Utilisation de figure pour la carte -->
-            <figure id="map-container">
-                <div id="map"></div>
-                <figcaption>Localisation de Rent Motion</figcaption>
-            </figure>
-        </section>
     </main>
+
+     <!-- Pop-up d'authentification -->
+     <aside id="auth-popup" class="popup hidden">
+        <div class="popup-content">
+            <button class="close-btn" aria-label="Fermer" onclick="togglePopup()">×</button>
+            <div class="popup-forms">
+                <!-- Formulaire de connexion -->
+                <form id="login-form" class="auth-form">
+                    <h2>Connexion</h2>
+                    <input type="email" placeholder="Adresse email" required>
+                    <input type="password" placeholder="Mot de passe" required>
+                    <button type="submit" class="popup-btn">Se connecter</button>
+                    <p class="popup-link" onclick="showForgotPassword()">Mot de passe oublié ?</p>
+                    <p class="popup-link">Pas encore inscrit ? <span onclick="showSignup()">S'inscrire</span></p>
+                </form>
+
+                <!-- Formulaire d'inscription -->
+                <form id="signup-form" class="auth-form hidden">
+                    <h2>Inscription</h2>
+                    <input type="text" placeholder="Nom complet" required>
+                    <input type="email" placeholder="Adresse email" required>
+                    <input type="password" placeholder="Mot de passe" required>
+                    <button type="submit" class="popup-btn">S'inscrire</button>
+                    <p class="popup-link">Déjà un compte ? <span onclick="showLogin()">Se connecter</span></p>
+                </form>
+
+                <!-- Formulaire "Mot de passe oublié" -->
+                <form id="forgot-password-form" class="auth-form hidden">
+                    <h2>Mot de passe oublié</h2>
+                    <input type="email" placeholder="Adresse email" required>
+                    <button type="submit" class="popup-btn">Envoyer le lien</button>
+                    <p class="popup-link" onclick="showLogin()">Retour à la connexion</p>
+                </form>
+            </div>
+        </div>
+    </aside>
+    
+    <section id="expertise" class="expertise-section container">
+        <div class="expertise-content">
+            <div class="expertise-text">
+                <h2>Notre expertise à votre service</h2>
+                <div class="expertise-points">
+                    <div class="point">
+                        <i class="bx bx-search-alt"></i>
+                        <div>
+                            <h3>Le meilleur prix</h3>
+                            <p>Une analyse objective des prix des véhicules pour vous aider à faire le bon choix.</p>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <i class="bx bx-shield"></i>
+                        <div>
+                            <h3>En toute sérénité</h3>
+                            <p>Une visibilité complète sur l’historique et l’état du véhicule.</p>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <i class="bx bx-euro"></i>
+                        <div>
+                            <h3>Adapté à votre budget</h3>
+                            <p>Un budget maîtrisé grâce à notre expertise.</p>
+                        </div>
+                    </div>
+                    <div class="point">
+                        <i class="bx bx-support"></i>
+                        <div>
+                            <h3>Vous conseiller</h3>
+                            <p>Des conseils personnalisés pour anticiper les entretiens à prévoir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Newsletter -->
+<section id="newsletter" class="newsletter-section" aria-label="Inscription à la newsletter">
+    <div class="newsletter-content">
+        <h2>Soyez le premier informé de nos meilleures offres</h2>
+        <form class="newsletter-form">
+            <div class="form-row">
+                <label for="prenom" class="visually-hidden"></label>
+                <input type="text" id="prenom" placeholder="Votre prénom" required>
+                <label for="nom" class="visually-hidden"></label>
+                <input type="text" id="nom" placeholder="Votre nom" required>
+            </div>
+            <label for="email" class="visually-hidden"></label>
+            <input type="email" id="email" placeholder="Votre e-mail" class="email-input" required>
+            <button type="submit">Valider</button>
+        </form>
+    </div>
+</section>
 
     <!-- Pied de page -->
     <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2024 Rent Motion. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="#"><i class="bx bxl-facebook-circle"></i></a>
-                <a href="#"><i class="bx bxl-twitter"></i></a>
-                <a href="#"><i class="bx bxl-instagram"></i></a>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Own My Car</h3>
+                <p>Nous contacter</p>
+                <img src="assests/img/logo_site.png" alt="Logo Own My Car" class="footer-logo">
+            </div>
+            <div class="footer-column">
+                <h3>Nous suivre</h3>
+                <ul>
+                    <li><a href="#"><i class="bx bxl-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="bx bxl-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Autres</h3>
+                <ul>
+                    <li><a href="#">Mentions Légales</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                    <li><a href="#">Gestion des cookies</a></li>
+                </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; Own My Car 2024 Tous droits réservés.</p>
+        </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap"></script>
 </body>
+
 </html>

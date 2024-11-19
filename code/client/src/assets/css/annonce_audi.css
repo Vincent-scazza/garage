@@ -1,0 +1,109 @@
+:root {
+    --header-bg: #fff;
+    --header-color: #333;
+    --body-bg: #f4f4f4;
+    --text-color: #333;
+    --card-bg: #fff;
+    --card-border: #ddd;
+    --link-color: #00A7E0;
+}
+
+/* Variables pour le mode sombre */
+.dark-theme {
+    --header-bg: #000000;
+    --header-color: #ffffff;
+    --body-bg: #000;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --card-border: #ffffff;
+    --link-color: #00A7E0;
+    --sun-color: yellow;
+    --marine:#00205B;
+    --bleu-acier:#2C5697;
+    
+}
+/* Section de la photo principale */
+.image-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+    background-color: #ffffff; /* Optionnel : ajoute un fond */
+}
+
+.image-container img {
+    max-width: 80%; /* Adapte l'image à la largeur de l'écran */
+    max-height: 80%; /* Empêche l'image de dépasser la hauteur disponible */
+    height: auto; /* Conserve les proportions */
+    border-radius: 10px; /* Optionnel : arrondit les coins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optionnel : ombre douce */
+}
+
+/* Section des détails de l'annonce */
+.details-annonce h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.details-annonce .prix {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.details-annonce .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.details-annonce h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.details-annonce .caracteristiques,
+.details-annonce .options {
+    list-style-type: none;
+    padding: 0;
+}
+
+.details-annonce .caracteristiques li,
+.details-annonce .options li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details-annonce .btn-contact {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.details-annonce .btn-contact:hover {
+    background-color: #0056b3;
+}
+
+.dark-theme h2{color: white;}
+
+.dark-theme li {color: rgb(0, 0, 0);}
+
+.dark-theme .image-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+    background-color: #000000; /* Optionnel : ajoute un fond */
+}
