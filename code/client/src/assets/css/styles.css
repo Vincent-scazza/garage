@@ -1,7 +1,7 @@
 /* Réinitialisation de base */
 * {
 
-    padding: 0 auto;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -377,6 +377,22 @@ align-items: center;
     transition: transform 0.3s ease; /* Animation fluide pour le défilement */
 }
 
+.btn-carousel {
+    font-family: 'Open Sans', sans-serif;
+    height: 75px;
+    width: 200px;
+    border-radius: 20px;
+    text-decoration: none; /* Supprime le soulignement */
+    background-color: var(--link-color); /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-carousel:hover {
+    background-color: #0056b3; /* Couleur au survol */
+  }
+
 .carousel .carousel-item {
     flex: 0 0 auto;
     min-width: 0px; /* Largeur minimale des éléments */
@@ -588,7 +604,7 @@ align-items: center;
     color: #fff;
     padding: 10px 0;
     font-size: 0.9rem;
-    max-width: 100% auto;
+    max-width: 100%;
 }
 
 /* Responsive Design */
@@ -850,8 +866,8 @@ align-items: center;
     .expertise-section {
         flex-direction: column;
         text-align: center;
-        width: 100% auto;
-        height: 100% auto;
+        width: 100%;
+        height: 100%;
     }
 
     .expertise-image img {

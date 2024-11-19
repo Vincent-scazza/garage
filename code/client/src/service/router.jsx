@@ -24,6 +24,10 @@ const router = createBrowserRouter([
 				path: "contact",
 				element: <ContactPage />,
 			},
+			// {
+			// 	path: "annonce-bmw",
+			// 	element: <AnnonceBmw />,
+			// },
 		],
 	},
 ]);
