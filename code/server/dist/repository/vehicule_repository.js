@@ -17,15 +17,15 @@ class VehiculeRepository {
         const connection = await this.mySQLService.connect();
         // requête SQL
         const query = `
-    SELECT
-         ${this.table}.*,
-         GROUP_CONCAT(options.id) AS options_id
-    FROM ${process.env.MYSQL_DB}.${this.table}
-    LEFT JOIN ${process.env.MYSQL_DB}.vehicule_option
-    ON vehicule_option.vehicule_id = vehicule.id
-    LEFT JOIN ${process.env.MYSQL_DB}.options
-    ON vehicule_option.option_id = options.id
-    GROUP BY ${this.table}.id
+		SELECT
+			${this.table}.*,
+			GROUP_CONCAT(options.id) AS options_id
+		FROM ${process.env.MYSQL_DB}.${this.table}
+		LEFT JOIN ${process.env.MYSQL_DB}.vehicule_option
+		ON vehicule_option.vehicule_id = vehicule.id
+		LEFT JOIN ${process.env.MYSQL_DB}.options
+		ON vehicule_option.option_id = options.id
+		GROUP BY ${this.table}.id
     ;
     `;
         // exécuter la requête SQL ou récupérer une erreur
@@ -41,7 +41,8 @@ class VehiculeRepository {
                 // assigner le resulatat
                 fullResults[i].brand = brand;
                 // requete pour récuperer les options
-                const options = await new OptionRepository().selectInlist(fullResults[i].options_id);
+                const options = await new OptionRepository().selectInList(fullResults[i].options_id);
+                fullResults[i].options = options;
                 // console.log(options);
             }
             // renvoyer les résultats de la requête

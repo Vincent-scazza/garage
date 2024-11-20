@@ -6,26 +6,26 @@ import Avis from "../component/home/Avis";
 import Expertise from "../component/home/Expertise";
 import NewsLetter from "../component/home/NewsLetter";
 import "../assets/css/styles.css";
-import { useEffect } from "react";
-import { selectAllVehicule } from "../service/vehicule_api";
+import VehiculeCarousel from "../component/home/VehiculeCarousel";
 
 const HomePage = () => {
-	// hook useEffect : permet de déclencher des actions lors du cycle de vie d'un composant (affichage, mise a jour, déaffichge)
-	// [] : permet de déclencher des actions, une unique fois, lors de l'affichage du composant
-	useEffect(() => {
-		// récupere tous les véhicules
-		selectAllVehicule();
-	}, []);
-
 	// Fragment : élément anonyme
 	return (
 		<>
 			<main>
 				<PopularBrands />
-				<CarouselCar />
+				<VehiculeCarousel />
 				<Avis />
 				<Expertise />
 				<NewsLetter />
+				{/* - map est l'unique boucle disponible dans le HTML de React
+					- accolades permettent de délimiter la partie HTML de la partie JS  */}
+
+				{/*	//boucle sur l'état (useState)
+					
+					 props : permet de transmettre des données entre un composant parent et un composant enfant
+					 équivaut à des attirbuts HTML
+				*/}
 			</main>
 		</>
 	);
