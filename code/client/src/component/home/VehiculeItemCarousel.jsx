@@ -9,12 +9,12 @@ const VehiculeItemCarousel = ({ data }) => {
 				{data.name}-{data.brand.name}
 			</h3>
 			<p>À partir de {data.price} €</p>
-			<Link to={"https://example.com"} className="btn-carousel">
+			<Link to={"http://localhost:5173/annonce"} className="btn-carousel">
 				Voir L'annonce
 			</Link>
 			<img
 				className="qrcode"
-				src="/img/qrcode_localhost.png"
+				src="/img/qrcode_annonce.png"
 				alt="QR Code pour Audi A6"
 			/>
 			<i

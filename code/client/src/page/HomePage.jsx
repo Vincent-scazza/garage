@@ -1,12 +1,12 @@
 import Footer from "../component/common/Footer";
 import Header from "../component/common/Header";
 import PopularBrands from "../component/home/PopularBrands";
-import CarouselCar from "../component/home/CarouselCar";
 import Avis from "../component/home/Avis";
 import Expertise from "../component/home/Expertise";
 import NewsLetter from "../component/home/NewsLetter";
-import "../assets/css/styles.css";
+import AuthPopUp from "../component/common/AuthPopUp";
 import VehiculeCarousel from "../component/home/VehiculeCarousel";
+import "../assets/css/styles.css";
 
 const HomePage = () => {
 	// Fragment : élément anonyme
@@ -16,6 +16,7 @@ const HomePage = () => {
 				<PopularBrands />
 				<VehiculeCarousel />
 				<Avis />
+				<AuthPopUp />
 				<Expertise />
 				<NewsLetter />
 				{/* - map est l'unique boucle disponible dans le HTML de React

@@ -674,8 +674,9 @@ align-items: center;
     .nav-links {
      
         flex-direction: column;
+        position:relative;
         background-color: #f9f9f9;
-        left: 199px;
+        left: 167px;
         top: 0;
         width: 200px;
         border-left: 1px solid #ddd;

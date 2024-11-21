@@ -1,0 +1,44 @@
+
+:root {
+    --header-bg: #fff;
+    --header-color: #333;
+    --body-bg: #f4f4f4;
+    --text-color: #333;
+    --card-bg: #fff;
+    --card-border: #ddd;
+    --link-color: #00A7E0;
+}
+
+/* Variables pour le mode sombre */
+.dark-theme {
+    --header-bg: #000000;
+    --header-color: #ffffff;
+    --body-bg: #000;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --card-border: #ffffff;
+    --link-color: #00A7E0;
+    --sun-color: yellow;
+    --marine:#00205B;
+    --bleu-acier:#2C5697;
+}
+    
+
+h1 {text-align: center;}
+
+.polconf {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--marine);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}

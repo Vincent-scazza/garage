@@ -1,7 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../page/HomePage";
 import ContactPage from "../page/ContactPage";
+import Annonce from "../page/Annonce";
+import MentionLg from "../page/Mentionlg";
 import BaseLayout from "../layout/BaseLayout";
+import PoConf from "../page/PoConf";
+import Cgu from "../page/Cgu";
 
 const router = createBrowserRouter([
 	/* 
@@ -16,7 +20,7 @@ const router = createBrowserRouter([
 		element: <BaseLayout />,
 		children: [
 			{
-				path: "",
+				path: "/",
 				element: <HomePage />,
 			},
 
@@ -24,10 +28,22 @@ const router = createBrowserRouter([
 				path: "contact",
 				element: <ContactPage />,
 			},
-			// {
-			// 	path: "annonce-bmw",
-			// 	element: <AnnonceBmw />,
-			// },
+			{
+				path: "annonce",
+				element: <Annonce />,
+			},
+			{
+				path: "mention_legales",
+				element: <MentionLg />,
+			},
+			{
+				path: "Cgu",
+				element: <Cgu />,
+			},
+			{
+				path: "PoConf",
+				element: <PoConf />,
+			},
 		],
 	},
 ]);

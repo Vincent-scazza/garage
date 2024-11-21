@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
 	return (
 		<footer className="footer">
@@ -6,7 +8,7 @@ const Footer = () => {
 					<h3>Own My Car</h3>
 					<p>Nous contacter</p>
 					<img
-						src="assests/img/logo_site.png"
+						src="/img/logo_site.png"
 						alt="Logo Own My Car"
 						className="footer-logo"
 					/>
@@ -15,19 +17,19 @@ const Footer = () => {
 					<h3>Nous suivre</h3>
 					<ul>
 						<li>
-							<a href="#">
+							<Link to="#">
 								<i className="bx bxl-twitter" /> Twitter
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#">
+							<Link to="#">
 								<i className="bx bxl-instagram" /> Instagram
-							</a>
+							</Link>
 						</li>
 						<li>
-							<a href="#">
+							<Link to="#">
 								<i className="bx bxl-facebook" /> Facebook
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -35,13 +37,14 @@ const Footer = () => {
 					<h3>Autres</h3>
 					<ul>
 						<li>
-							<a href="#">Mentions Légales</a>
+							<Link to="mention_legales">Mentions Légales</Link>
+						</li>
+
+						<li>
+							<Link to="cgu">Conditions générales d'utilisation</Link>
 						</li>
 						<li>
-							<a href="#">Conditions générales</a>
-						</li>
-						<li>
-							<a href="#">Gestion des cookies</a>
+							<Link to="PoConf">Politique de Confidentialite</Link>
 						</li>
 					</ul>
 				</div>

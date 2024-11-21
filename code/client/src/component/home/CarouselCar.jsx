@@ -13,7 +13,7 @@ const CarouselCar = () => {
 						/>
 						<h3>Audi A6</h3>
 						<p>À partir de 4 200 €</p>
-						<Link to={"https://AnnoneBMW"} className="btn-carousel">
+						<Link to={"https://annonce"} className="btn-carousel">
 							Voir L'annonce
 						</Link>
 						<img
@@ -54,7 +54,7 @@ const CarouselCar = () => {
 						<img src="/img/mercedes_g.jpeg" alt="Véhicule Mercedes GLC" />
 						<h3>Mercedes classe G</h3>
 						<p>À partir de 37 000 €</p>
-						<Link to={"https://example.com"} className="btn-carousel">
+						<Link to={"https://annonce"} className="btn-carousel">
 							Voir L'annonce
 						</Link>
 						<img
