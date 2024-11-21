@@ -7,6 +7,7 @@ import BaseLayout from "../layout/BaseLayout";
 import PoConf from "../page/PoConf";
 import Cgu from "../page/Cgu";
 import RegisterPage from "../page/RegisterPage";
+import LoginPage from "../page/LoginPage";
 
 const router = createBrowserRouter([
 	/* 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 			{
 				path: "RegisterPage",
 				element: <RegisterPage />,
+			},
+			{
+				path: "LoginPage",
+				element: <LoginPage />,
 			},
 		],
 	},

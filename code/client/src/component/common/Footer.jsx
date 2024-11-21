@@ -14,6 +14,9 @@ const Footer = () => {
 						<li>
 							<Link to="RegisterPage"> S'inscrire</Link>
 						</li>
+						<li>
+							<Link to="LoginPage">login</Link>
+						</li>
 					</ul>
 					<img
 						src="/img/logo_site.png"
