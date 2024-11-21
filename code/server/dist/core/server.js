@@ -16,6 +16,7 @@ class Server {
     constructor() {
         // activer le middleware JSON, permet d'accéder à la propriété body de la requete HTTP au format JSON
         this.router.use(express.json());
+        this.router.use(express.static("public"));
         // gérer CORS
         this.router.use(cors({
             origin: process.env.ORIGINS?.split(","),

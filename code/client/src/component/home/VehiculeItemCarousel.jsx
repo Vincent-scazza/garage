@@ -4,12 +4,12 @@ const VehiculeItemCarousel = ({ data }) => {
 	return (
 		<article className="carousel-item">
 			{/* biome-ignore lint/a11y/useAltText: <explanation> */}
-			<img src={`${import.meta.env.VITE_API_URL}../public/img ${data.photo}`} />{" "}
+			<img src={`${import.meta.env.VITE_API_URL}/img/${data.photo}`} />{" "}
 			<h3>
 				{data.name}-{data.brand.name}
 			</h3>
 			<p>À partir de {data.price} €</p>
-			<Link to={"http://localhost:5173/annonce"} className="btn-carousel">
+			<Link to={"/annonce"} className="btn-carousel">
 				Voir L'annonce
 			</Link>
 			<img

@@ -7,12 +7,15 @@ import NewsLetter from "../component/home/NewsLetter";
 import AuthPopUp from "../component/common/AuthPopUp";
 import VehiculeCarousel from "../component/home/VehiculeCarousel";
 import "../assets/css/styles.css";
+import NoticeMessage from "../component/common/NoticeMessage";
 
 const HomePage = () => {
 	// Fragment : élément anonyme
 	return (
 		<>
 			<main>
+				{/* afficher la notification stockée dans la seesion */}
+				<NoticeMessage />
 				<PopularBrands />
 				<VehiculeCarousel />
 				<Avis />

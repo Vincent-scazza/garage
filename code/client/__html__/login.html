@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own My Car</title>
+    <meta name="description" content="Own My Car">
+    <meta name="author" content="Vincent Scazza">
+    <!-- Feuilles de style -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="">
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    <!-- Icônes -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+
+<div class="login">
+    <!-- Section Connexion -->
+    <div id="connexion">
+        <h2>Connexion</h2>
+        <form action="/login" method="POST">
+            <label for="email">Adresse Email</label>
+            <input type="email" id="email" name="email" required placeholder="Votre email">
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required placeholder="Votre mot de passe">
+
+            <button type="submit">Se connecter</button>
+        </form>
+        <div class="toggle">
+            <p>Pas encore inscrit ? <a href="#" onclick="toggleForm('inscription')">Inscrivez-vous ici</a></p>
+        </div>
+    </div>
+
+    <!-- Section Inscription -->
+    <div id="inscription" style="display: none;">
+        <h2>Inscription</h2>
+        <form action="/register" method="POST">
+            <label for="fullname">Nom complet</label>
+            <input type="text" id="fullname" name="fullname" required placeholder="Votre nom complet">
+
+            <label for="email-register">Adresse Email</label>
+            <input type="email" id="email-register" name="email" required placeholder="Votre email">
+
+            <label for="password-register">Mot de passe</label>
+            <input type="password" id="password-register" name="password" required placeholder="Votre mot de passe">
+
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div class="toggle">
+            <p>Déjà inscrit ? <a href="#" onclick="toggleForm('connexion')">Connectez-vous ici</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleForm(formId) {
+        document.getElementById('connexion').style.display = formId === 'connexion' ? 'block' : 'none';
+        document.getElementById('inscription').style.display = formId === 'inscription' ? 'block' : 'none';
+    }
+</script>
+
+</body>

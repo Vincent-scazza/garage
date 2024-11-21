@@ -6,7 +6,15 @@ const Footer = () => {
 			<div className="footer-container">
 				<div className="footer-column">
 					<h3>Own My Car</h3>
-					<p>Nous contacter</p>
+					<ul>
+						<li>
+							<Link to="contact">Nous Contacter</Link>
+						</li>
+
+						<li>
+							<Link to="RegisterPage"> S'inscrire</Link>
+						</li>
+					</ul>
 					<img
 						src="/img/logo_site.png"
 						alt="Logo Own My Car"

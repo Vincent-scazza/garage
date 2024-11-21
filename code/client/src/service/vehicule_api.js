@@ -1,7 +1,7 @@
 // récupération de tous les véhicules
 const selectAllVehicule = async () => {
 	// configure la requete HTTP
-	const request = new Request(`${import.meta.env.VITE_APi_URL}/vehicule`);
+	const request = new Request(`${import.meta.env.VITE_API_URL}/vehicule`);
 
 	// récupere la réponse
 	const response = await fetch(request);

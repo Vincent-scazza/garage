@@ -6,6 +6,7 @@ import MentionLg from "../page/Mentionlg";
 import BaseLayout from "../layout/BaseLayout";
 import PoConf from "../page/PoConf";
 import Cgu from "../page/Cgu";
+import RegisterPage from "../page/RegisterPage";
 
 const router = createBrowserRouter([
 	/* 
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
 			{
 				path: "PoConf",
 				element: <PoConf />,
+			},
+			{
+				path: "RegisterPage",
+				element: <RegisterPage />,
 			},
 		],
 	},
