@@ -23,6 +23,7 @@ h2 {
 
 /* Application des variables */
 body {
+    font-family: 'Nunito', sans-serif;
     background-color: var(--body-bg);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;

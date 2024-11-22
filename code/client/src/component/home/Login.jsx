@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../../service/security_api";
+import { useContext } from "react";
+import { UserContext } from "../../provider/UserProvider";
 
 // gérer le formulaire
 const Login = () => {
@@ -13,8 +15,9 @@ const Login = () => {
 	// useNavigate permet de changer de route
 	const Navigate = useNavigate();
 
-	// soumission du formulaire
-	// parametre data permet de récuperer la saisie du formulaire
+	// useContext permet d'accéder aux données
+	const { user, setUser } = useContext(UserContext);
+
 	const submit = async (data) => {
 		// 	// enregistre l'utilisateur
 		const results = await loginUser(data);
@@ -22,6 +25,9 @@ const Login = () => {
 		if (results.status === 200) {
 			// 		// stocker le message dans la session
 			window.sessionStorage.setItem("notice", "Connexion effectuer");
+
+			// stocker l'utilisateur dans le contexte
+			setUser(results.data);
 
 			// 		// redirection vers une route
 			Navigate("/");

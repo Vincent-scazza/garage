@@ -8,6 +8,7 @@ import PoConf from "../page/PoConf";
 import Cgu from "../page/Cgu";
 import RegisterPage from "../page/RegisterPage";
 import LoginPage from "../page/LoginPage";
+import LogoutPage from "../page/LogoutPage";
 
 const router = createBrowserRouter([
 	/* 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
 			{
 				path: "LoginPage",
 				element: <LoginPage />,
+			},
+			{
+				path: "Logout",
+				element: <LogoutPage />,
 			},
 		],
 	},

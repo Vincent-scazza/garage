@@ -1,9 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../provider/UserProvider";
 
 const Header = () => {
+	// useContext permet d'accéder aux données
+	const { user, setUser } = useContext(UserContext);
 	return (
 		// composant/balise Link remplace la balise a
 		//l'attribue to remplace l'attribut href
+
+		// condition ? instruction : else
+
 		<header>
 			<nav className="navbar container">
 				{/* <!-- Menu Burger --> */}
@@ -12,7 +19,6 @@ const Header = () => {
 					<span />
 					<span />
 				</div>
-
 				{/* <!-- Logo --> */}
 				<h1>
 					<Link to="/" className="logo">
@@ -28,10 +34,9 @@ const Header = () => {
 				>
 					<i className="bx bx-sun" id="theme-icon" />
 				</div>
-
 				{/* <!-- Navigation principale --> */}
-				<ul className="nav-links" id="nav-links">
-					<li className="close-btn" onclick="toggleMenu()">
+				<ul className="" id="nav-links">
+					<li className="" onclick="toggleMenu()">
 						&times;
 					</li>
 					<li>
@@ -43,11 +48,16 @@ const Header = () => {
 					<li>
 						<Link to="/contact">Contact</Link>
 					</li>
-					<li>
-						<button className="login-btn" onclick="togglePopup()" type="button">
-							Se connecter
-						</button>
-					</li>
+
+					{user ? (
+						<Link to={"/Logout"}>Log out</Link>
+					) : (
+						<>
+							<Link to={"/RegisterPage"}>register</Link>
+							<br />
+							<Link to={"/LoginPage"}>login</Link>
+						</>
+					)}
 				</ul>
 			</nav>
 		</header>

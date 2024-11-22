@@ -4,6 +4,7 @@ const CarouselCar = () => {
 	return (
 		<section className="carousel-section container">
 			<h2>Nos Véhicules</h2>
+			{JSON.stringify}
 			<div className="carousel">
 				<div className="carousel-track">
 					<article className="carousel-item">

@@ -1,5 +1,6 @@
-import { Router, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import router from "./service/router";
+import { UserProvider } from "./provider/UserProvider";
 
 /*
     composant :
@@ -7,7 +8,11 @@ import router from "./service/router";
     doit retourner un élément unique
 */
 const App = () => {
-  return <RouterProvider router={ router} />;
+	return (
+		<UserProvider>
+			<RouterProvider router={router} />
+		</UserProvider>
+	);
 };
 
 export default App;
