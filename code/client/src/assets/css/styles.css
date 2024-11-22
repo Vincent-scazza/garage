@@ -1,16 +1,8 @@
 /* Réinitialisation de base */
 * {
-
+margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1, h2 {
-    font-family: 'Nunito', sans-serif;
-}
-
-h3, p {
-    font-family: 'Open Sans', sans-serif;
 }
 
 

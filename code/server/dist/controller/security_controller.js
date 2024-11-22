@@ -1,6 +1,7 @@
 import SecurityRepository from "../repository/security_repository.js";
 import argon2 from "argon2";
 import jwt from "jsonwebtoken";
+import SimpleCrypto from "simple-crypto-js";
 class SecurityController {
     securityRepository = new SecurityRepository();
     // méthodes appelées par le routeur
@@ -48,6 +49,18 @@ class SecurityController {
                 message: "Forbidden",
             });
         }
+        // crypter le mot de passe pour le stocker cote client
+        // générer une partie de la clé de décryptage aléatoire
+        const randomKey = SimpleCrypto.default.generateRandom();
+        // clé complète de décryptage : partie aléatoire + partie stockée dans la variable d'environnement
+        const key = `${randomKey}${process.env.KEY}`;
+        // générer le cryptage
+        const simpleCrypto = new SimpleCrypto.default(key);
+        // crypter le mot de passe
+        const passwordEncrypt = simpleCrypto.encrypt(req.body.password);
+        // ajouter la clé aléatoire et le mot de passe crypté à l'utilisateur
+        user.key = randomKey;
+        user.password = passwordEncrypt;
         // si l'utilisateur existe est que le mdp est correcte
         return res.status(200).json({
             status: 200,
@@ -66,8 +79,16 @@ class SecurityController {
                 message: "error user does not exist",
             });
         }
+        // récupere une partie de la clé  aléatoire
+        const randomKey = req.body.key;
+        // clé complète de décryptage : partie aléatoire + partie stockée dans la variable d'environnement
+        const key = `${randomKey}${process.env.KEY}`;
+        // générer le cryptage
+        const simpleCrypto = new SimpleCrypto.default(key);
+        // décrypter le mot de passe
+        const passwordDecrypt = simpleCrypto.decrypt(req.body.password);
         // // vérification du mot de passe : comparer le mot de passe saisi avec le hash contenu dans la base de données
-        const isPasswordIsValid = await argon2.verify(user.password, req.body.password);
+        const isPasswordIsValid = await argon2.verify(user.password, passwordDecrypt);
         if (!isPasswordIsValid) {
             return res.status(403).json({
                 status: 403,

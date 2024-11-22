@@ -13,24 +13,26 @@ const HomePage = () => {
 	// Fragment : élément anonyme
 	return (
 		<>
-			<main>
-				{/* afficher la notification stockée dans la seesion */}
-				<NoticeMessage />
-				<PopularBrands />
-				<VehiculeCarousel />
-				<Avis />
-				<AuthPopUp />
-				<Expertise />
-				<NewsLetter />
-				{/* - map est l'unique boucle disponible dans le HTML de React
+			<body>
+				<main>
+					{/* afficher la notification stockée dans la seesion */}
+					<NoticeMessage />
+					<PopularBrands />
+					<VehiculeCarousel />
+					<Avis />
+					<AuthPopUp />
+					<Expertise />
+					<NewsLetter />
+					{/* - map est l'unique boucle disponible dans le HTML de React
 					- accolades permettent de délimiter la partie HTML de la partie JS  */}
 
-				{/*	//boucle sur l'état (useState)
+					{/*	//boucle sur l'état (useState)
 					
 					 props : permet de transmettre des données entre un composant parent et un composant enfant
 					 équivaut à des attirbuts HTML
 				*/}
-			</main>
+				</main>
+			</body>
 		</>
 	);
 };

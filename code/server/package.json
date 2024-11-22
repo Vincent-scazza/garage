@@ -25,6 +25,7 @@
 		"jsonwebtoken": "^9.0.2",
 		"mongodb": "^6.8.0",
 		"mysql2": "^3.10.2",
+		"simple-crypto-js": "^3.0.1",
 		"typescript": "^5.5.3"
 	},
 	"devDependencies": {

@@ -5,6 +5,7 @@ type User = {
 	email?: string;
 	password?: string;
 	roles_id?: number;
+	key?: string;
 	// unknown, si une erreur est renvoyée
 	role?: Role | unknown;
 };
