@@ -9,6 +9,9 @@ import Cgu from "../page/Cgu";
 import RegisterPage from "../page/RegisterPage";
 import LoginPage from "../page/LoginPage";
 import LogoutPage from "../page/LogoutPage";
+import AdminVehiculeFormPage from "../page/admin/AdminVehiculeFormPage";
+import AdminVehiculePage from "../page/admin/AdminVehiculePage";
+import AdminHomePage from "../page/admin/AdminHomePage";
 
 const router = createBrowserRouter([
 	/* 
@@ -58,6 +61,25 @@ const router = createBrowserRouter([
 			{
 				path: "Logout",
 				element: <LogoutPage />,
+			},
+		],
+	},
+
+	{
+		path: "/admin/",
+		element: <BaseLayout />,
+		children: [
+			{
+				path: "",
+				element: <AdminHomePage />,
+			},
+			{
+				path: "vehicule",
+				element: <AdminVehiculePage />,
+			},
+			{
+				path: "vehicule/form",
+				element: <AdminVehiculeFormPage />,
 			},
 		],
 	},

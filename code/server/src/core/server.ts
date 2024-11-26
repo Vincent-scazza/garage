@@ -14,6 +14,7 @@ import SecurityRouter from "../router/security_router.js";
 import cors from "cors";
 import OriginnMiddleware from "../middleware/security/originMiddleware.js";
 import ContactRouter from "../router/contact_router.js";
+import OptionRouter from "../router/option_router.js";
 
 class Server {
 	// propriétés
@@ -54,6 +55,7 @@ class Server {
 		this.router.use("/brand", new BrandRouter().getRouter());
 		this.router.use("/", new SecurityRouter().getRouter());
 		this.router.use("/contact", new ContactRouter().getRouter());
+		this.router.use("/options", new OptionRouter().getRouter());
 
 		// le routeur NotFound doit etre obligatoirement appeleé en dernière position
 		this.router.use("*", new NotFoundRouter().getRouter());

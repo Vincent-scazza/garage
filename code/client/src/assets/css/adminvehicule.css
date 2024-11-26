@@ -1,0 +1,63 @@
+.conteneur {
+    font-family: 'Nunito Sans', sans-serif;}
+
+    table {
+        border-collapse: collapse;
+        width: 100%; /* Le tableau occupe toute la largeur */
+        margin: 20px 0; /* Espacement au-dessus et en dessous */
+        font-size: 16px; /* Taille du texte plus agréable */
+        font-family: 'Nunito Sans', sans-serif; /* Une police moderne et lisible */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile autour du tableau */
+        background-color: #fff; /* Fond blanc */
+        border: 1px solid #ddd; /* Bordure autour du tableau */
+        border-radius: 8px; /* Coins arrondis */
+        overflow: hidden; /* Les coins arrondis affectent également les cellules */
+
+    }
+    
+    tbody tr:nth-child(odd) {
+        background-color: #f9f9f9; /* Gris clair */
+    }
+    
+    tbody tr:nth-child(even) {
+        background-color: #ffffff; /* Blanc */
+    }
+    
+    tbody tr:hover {
+        background-color: #f1f1f1; /* Survol en gris clair */
+        cursor: pointer; /* Curseur pour indiquer l'interaction possible */
+    }
+
+    td {
+        padding: 12px 15px; /* Marges internes */
+        border-bottom: 1px solid #ddd; /* Ligne séparatrice sous chaque cellule */
+        text-align: left; /* Alignement des données */
+        vertical-align: middle; /* Centre le texte verticalement */
+        font-size: 14px; /* Texte légèrement plus petit */
+    }
+    td img {
+        max-width: 120px; /* Taille maximale des images */
+        height: auto;
+        border-radius: 5px; /* Coins arrondis pour un aspect moderne */
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Ombre subtile autour des images */
+    }
+
+    .table-container {
+        overflow-x: auto; /* Ajoute une barre de défilement horizontale si le tableau est trop large */
+        margin: 0 auto; /* Centre le conteneur */
+    }
+
+    button:hover {
+        background-color: #00A7E0;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
+
+    
+    
+    
+    
+
+    
+    
+

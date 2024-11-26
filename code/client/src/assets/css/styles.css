@@ -1,12 +1,4 @@
-/* Réinitialisation de base */
-* {
-margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-
-input[type="checkbox"]{display: none;}
 
 h2 {
     text-align: center;
@@ -16,10 +8,13 @@ h2 {
 /* Application des variables */
 body {
     font-family: 'Nunito', sans-serif;
-    background-color: var(--body-bg);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    background-color:white;
+    background-image: url('/public/img/fond.webp');
+
+   
 }
+
+.h22{color: black;}
 /* Variables pour le mode clair (par défaut) */
 :root {
     --header-bg: #fff;
@@ -57,17 +52,25 @@ h3{
 
 H2{color: black;}
 
+#nav-links{
+    position: relative;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-btn{ text-decoration: none;}
+
 /* Header */
 .navbar {
 
-gap: 20px;
+gap: 17px;
 display: flex;
 justify-content: center;
 align-items: center;
     padding: 15px;
     background-color: var(--header-bg, #fff);
     color: var(--header-color, #333);
-    z-index: 10;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)absolute;
 }
@@ -88,11 +91,15 @@ align-items: center;
 /* Logo */
 .logo {position: relative;
     justify-content: center;
+    font-family: 'Nunito', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     color: var(--header-color, #333);
 }
+
+.nav-btn{color: inherit;
+text-decoration: none;}
 
 .logo span {
     color: var(--link-color);
@@ -154,70 +161,6 @@ align-items: center;
     color: var(--header-color);
 }
 
-
-                 /* Menu Burger */
-.menu-burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 22px;
-    height: 24px;
-    cursor: pointer;
-    z-index: 11;
-    left: 30px;
-  
-}
-
-.menu-burger span {
-    display: flex;
-    height: 4px;
-    background-color: #333;
-    border-radius: 4px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-/* Animation d'ouverture */
-.menu-burger.active span:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
-    background-color: var(--link-color);
-}
-
-.menu-burger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-burger.active span:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
-    background-color: var(--link-color);
-}
-
-
-
-/* Nav links (menu caché par défaut) */
-.nav-links {
-    list-style: none;
-    position:absolute ;
-    top: 0;
-    left: -200px; /* Plus compact */
-    height: 420px;
-    width: 180px; /* Réduit la largeur */
-    background-color: #ffffff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    font-weight: bolder;
-    font-family: 'Nunito', sans-serif;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px; /* Réduit l'espacement */
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-    z-index: 14;
-    border-radius: 10px;
-}
-
-.nav-logo  { border-radius: 15px;
-    
-}
 
 .nav-links.active {
     transform: translateX(200px); /* Ajuste pour correspondre à la largeur */
@@ -337,15 +280,6 @@ align-items: center;
     }
 }
 
-
-
-/* Menu hamburger pour mobile */
-.menu-icon {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-}
-
 /* Section du carrousel */
 .carousel-section {
     padding: 20px 10px; /* Ajuste les marges autour du carrousel */
@@ -371,7 +305,7 @@ align-items: center;
 }
 
 .btn-carousel {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
     height: 75px;
     width: 200px;
     border-radius: 20px;
@@ -478,6 +412,7 @@ align-items: center;
 .reviews-section {
     background-color: #f9f9f9;
     padding: 40px 0;
+    border-radius: 10px;
 }
 
 .reviews-container {
@@ -630,7 +565,7 @@ align-items: center;
     
     }
 
-    .nav-logo{display: none;}
+
 
     .nav-links li {
         margin-bottom: 20px;
@@ -715,44 +650,6 @@ align-items: center;
         padding: 8px 12px;
     }
 }
-/* Styles pour le pop-up */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: opacity 0.3s ease;
-}
-
-.popup.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #333;
-}
 
 .auth-form {
     display: flex;
@@ -795,9 +692,8 @@ align-items: center;
     text-decoration: underline;
 }
 
-.hidden {
-    display: none;
-}
+
+
 
 /* Section "Notre expertise à votre service" */
 .expertise-section {
@@ -959,7 +855,7 @@ align-items: center;
 
 /* Section des marques */
 .brands-section {
-    margin: 40px 0; /* Espace au-dessus et en dessous */
+    margin: 30px 0; /* Espace au-dessus et en dessous */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -970,7 +866,7 @@ align-items: center;
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #000000;
+    color: #ffffff;
 }
 
 .dark-theme .brands-section h2 {
@@ -989,6 +885,7 @@ align-items: center;
     padding: 10px 0;
     scroll-snap-type: x mandatory; /* Alignement fluide des éléments */
     justify-content: center; /* Centre les éléments horizontalement */
+
 }
 
 .brand {
@@ -1093,76 +990,7 @@ align-items: center;
     transform: scale(0.98); /* Effet de clic */
 }
 
-
-
-
-
-
-/* ==========    POP UP DES COOKIE =================== */
-
-/* Popup Cookies */
-.cookie-popup {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    max-width: 400px;
-    background-color: #ffffff;
-    color: #333333;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-
-/* Contenu du Popup */
-.cookie-popup-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.cookie-popup p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
 /* Boutons */
-.cookie-popup-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-
-.cookie-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cookie-btn.accept {
-    background-color: #007bff;
-    color: #ffffff;
-}
-
-.cookie-btn.accept:hover {
-    background-color: #0056b3;
-}
-
-.cookie-btn.decline {
-    background-color: #f4f4f4;
-    color: #333333;
-}
-
-.cookie-btn.decline:hover {
-    background-color: #e0e0e0;
-}
 
 /* Caché par défaut */
 .hidden {
@@ -1170,3 +998,70 @@ align-items: center;
     opacity: 0;
 }
 
+
+.admin{
+    margin-top: 40px;
+}
+
+.CAR{color: #00A7E0;}
+
+.SQL{color: rgb(217, 217, 37);}
+
+/* Barre de navigation */
+
+
+/* Menu de navigation */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+/* Liens de navigation */
+.navbar ul li a {
+    
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+    transition: color 0.3s ease;
+}
+
+/* Barre de progression animée sous chaque lien */
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px; /* Hauteur de la barre de progression */
+    background-color: var(--link-color); /* Couleur de la barre de progression */
+    transition: width 0.4s ease-in-out; /* Animation de la largeur */
+}
+
+/* Animation de la barre au survol */
+.navbar ul li a:hover::after {
+    width: 100%; /* La barre s'étend sur toute la largeur du lien au survol */
+}
+
+/* Changement de couleur du lien au survol */
+.navbar ul li a:hover {
+    color: var(--link-color); /* Change la couleur du texte du lien au survol */
+}
+
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+}
+
+.noir{color: black;}
+
+.notice{color: red;}

@@ -1,64 +1,128 @@
-.inscrire{
+/* Conteneur du formulaire */
+.inscrire {
     display: flex;
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
-    left: 40%;
+    flex-direction: column; /* Met les éléments en colonne */
+    align-items: center; /* Centre les éléments */
+    justify-content: center;
+    max-width: 300px;
+    margin: 0 auto; /* Centre le formulaire horizontalement */
+    padding: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre plus subtile pour donner de la profondeur */
+    border-radius: 16px; /* Coins plus arrondis pour un aspect plus doux */
+    background: linear-gradient(135deg, #ffffff, #f7f7f7); /* Dégradé de fond subtil */
     position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
+    transition: transform 0.3s ease;
+   
+} 
 
-h2 {
-    text-align: center;
-    color: #333;
-}
+/* Formulaire */
 
-form {
-    margin-bottom: 20px;
-}
-
+/* Labels */
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #555;
+    color: #333; /* Couleur légèrement plus foncée pour une meilleure lisibilité */
+    font-size: 16px;
 }
 
+/* Champs d'entrée */
 input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px; /* Espacement légèrement augmenté */
+    margin-bottom: 20px; /* Espacement plus uniforme */
+    border: 1px solid #ccc; /* Couleur de bordure douce */
+    border-radius: 6px; /* Coins plus arrondis */
     font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+input:focus {
+    border-color: #007bff; /* Bordure bleue au focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Ombre subtile au focus */
+    outline: none; /* Supprime l'outline par défaut */
 }
-
-button:hover {
-    background-color: #4cae4c;
-}
-
+/* Lien de bascule (toggle) */
 .toggle {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #555;
 }
 
 .toggle a {
     color: #007bff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .toggle a:hover {
     text-decoration: underline;
+    color: #0056b3; /* Couleur légèrement plus sombre au survol */
 }
+
+.bb {display: block;
+   text-align: center; /* Change le bouton en élément de bloc */
+    margin: 20px auto; /* Le centre horizontalement, et ajoute un espacement vertical */
+    padding: 10px 20px; /* Espacement interne pour améliorer la lisibilité */
+    background-color: #00a8e8; /* Couleur de fond */
+    color: white; /* Texte en blanc */
+    border: none; /* Retire les bordures par défaut */
+    border-radius: 5px; /* Coins arrondis pour un aspect plus moderne */
+    font-weight: bold; /* Texte en gras */
+    cursor: pointer; /* Change le curseur en une main lors du survol */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour ajouter de la profondeur */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .update{display: block;
+        text-decoration: none; /* Change le bouton en élément de bloc */
+        margin: 20px auto; /* Le centre horizontalement, et ajoute un espacement vertical */
+        padding: 10px 20px; /* Espacement interne pour améliorer la lisibilité */
+        background-color: #00a8e8; /* Couleur de fond */
+        color: white; /* Texte en blanc */
+        border: none; /* Retire les bordures par défaut */
+        border-radius: 5px; /* Coins arrondis pour un aspect plus moderne */
+        font-weight: bold; /* Texte en gras */
+        cursor: pointer; /* Change le curseur en une main lors du survol */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour ajouter de la profondeur */
+        transition: background-color 0.3s ease, transform 0.3s ease;}
+
+        .delete{display: block; /* Change le bouton en élément de bloc */
+        text-decoration: none;
+        margin: 20px auto; /* Le centre horizontalement, et ajoute un espacement vertical */
+        padding: 10px 20px; /* Espacement interne pour améliorer la lisibilité */
+        background-color: #ff0000; /* Couleur de fond */
+        color: white; /* Texte en blanc */
+        border: none; /* Retire les bordures par défaut */
+        border-radius: 5px; /* Coins arrondis pour un aspect plus moderne */
+        font-weight: bold; /* Texte en gras */
+        cursor: pointer; /* Change le curseur en une main lors du survol */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile pour ajouter de la profondeur */
+        transition: background-color 0.3s ease, transform 0.3s ease;}
+
+
+    .btn{display: block;
+        min-height: 40px;
+text-decoration: white; 
+    margin: 20px auto; 
+    padding: 10px 20px; 
+    background-color: #00a8e8; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.3s ease;}
+    
+    a{text-decoration: none;
+    color: inherit;}
+
+.black{background: white;}
+
+.titre{color: white;}
+
+.blanc{color: white;}

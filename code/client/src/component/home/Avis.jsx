@@ -1,7 +1,7 @@
 const Avis = () => {
 	return (
 		<section id="reviews" className="reviews-section container">
-			<h2>Ce que disent nos clients</h2>
+			<h2 className="h22">Ce que disent nos clients</h2>
 			<div className="reviews-container">
 				<blockquote className="review">
 					<p>

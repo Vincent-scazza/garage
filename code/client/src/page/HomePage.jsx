@@ -20,8 +20,9 @@ const HomePage = () => {
 					<PopularBrands />
 					<VehiculeCarousel />
 					<Avis />
-					<AuthPopUp />
+					<br />
 					<Expertise />
+					<br />
 					<NewsLetter />
 					{/* - map est l'unique boucle disponible dans le HTML de React
 					- accolades permettent de délimiter la partie HTML de la partie JS  */}

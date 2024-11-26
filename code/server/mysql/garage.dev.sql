@@ -73,7 +73,7 @@ VALUES
         (NULL, 'Freinage d’urgence autonome'),
         (NULL, 'Régulateur de vitesse '),
         (NULL, 'Toit ouvrant'),
-        (NULL, 'Intérieur en cuir'),
+        (NULL, 'Intérieur en cuir'),    
         (NULL, 'Volant multifonctions'),
         (NULL, 'Surveillance des angles morts'),
         (NULL, 'Assistant de stationnement automatique'),

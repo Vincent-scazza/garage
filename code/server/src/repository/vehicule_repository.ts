@@ -125,7 +125,7 @@ class VehiculeRepository {
 			let query = `
             INSERT INTO ${process.env.MYSQL_DB}.${this.table}
             VALUE
-                (NULL, :model, :price, :brand_id)
+                (NULL, :model, :price, :photo, :brand_id)
             ;
         `;
 

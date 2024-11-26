@@ -14,7 +14,7 @@ const NoticeMessage = () => {
 		}
 	}, []);
 
-	return <p>{notice}</p>;
+	return <p className="notice">{notice}</p>;
 };
 
 export default NoticeMessage;

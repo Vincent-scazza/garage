@@ -2,8 +2,14 @@ import express from "express";
 import VehiculeController from "../controller/vehicule_controller.js";
 import VehiculeValidatorMiddelware from "../middleware/validator/vehicule_validator_middleware.js";
 import AuthorizationMiddleware from "../middleware/security/authorizationMiddleware.js";
+import multer from "multer";
+import VehiculeFileMiddleware from "../middleware/vehicule_file_Middleware.js";
 class VehiculeRouter {
     router = express.Router();
+    // définir le dosssier de transfert des images
+    upload = multer({
+        dest: `${process.env.ASSETS_DIRECTORY}/img`,
+    });
     getRouter = () => {
         /*
              lister les routes associées au préfixe du routeur
@@ -14,7 +20,8 @@ class VehiculeRouter {
         this.router.get("/:id", new VehiculeController().one);
         // route pour créer un véhicule
         // ajout d'un middleware de validation
-        this.router.post("/", new AuthorizationMiddleware().Authorize(["admin"]), new VehiculeValidatorMiddelware().filter, new VehiculeController().create);
+        // middleware any de multer permet d'accéder aux fichiers transférés avec req.files
+        this.router.post("/", this.upload.any(), new VehiculeFileMiddleware().process, new AuthorizationMiddleware().Authorize(["admin"]), new VehiculeValidatorMiddelware().filter, new VehiculeController().create);
         // route pour modifier un vehicule
         this.router.put("/:id", new VehiculeController().update);
         // route pour supprimer un véhicule

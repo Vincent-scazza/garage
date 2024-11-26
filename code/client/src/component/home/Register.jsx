@@ -32,7 +32,7 @@ const RegisterText = () => {
 		<>
 			<div className="inscrire">
 				<div id="connexion">
-					<h2>Inscription</h2>
+					<h2 className="noir">Inscription</h2>
 					<form onSubmit={handleSubmit(submit)}>
 						<label htmlFor="email">Email</label>
 						{/* register remplace l'attribut HTMLname */}
@@ -55,7 +55,9 @@ const RegisterText = () => {
 						/>
 						<span>{errors?.password?.message}</span>
 
-						<button type="submit">S'inscrire</button>
+						<button className="btn" type="submit">
+							Inscription
+						</button>
 					</form>
 					<div className="toggle">
 						<p>
@@ -65,7 +67,7 @@ const RegisterText = () => {
 				</div>
 
 				<div id="inscription" style={{ display: "none" }}>
-					<h2>Inscription</h2>
+					<h2 className="noir">Inscription</h2>
 					<form action="/register" method="POST">
 						<label htmlFor="fullname">Nom complet</label>
 						<input
