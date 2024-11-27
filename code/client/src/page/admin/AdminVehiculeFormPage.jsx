@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { selectAllBrand } from "../../service/brand_api";
-import { CreateVehicule } from "../../service/vehicule_api";
+import { CreateVehicule, selectOneVehicule } from "../../service/vehicule_api";
 import { selectAllOptions } from "../../service/options_api";
 import { authUser } from "../../service/security_api";
 import { UserContext } from "../../provider/UserProvider";
@@ -12,8 +12,9 @@ const AdminVehiculeFormPage = () => {
 	const {
 		register,
 		handleSubmit,
-		reset,
 		formState: { errors },
+		// reset permet de réinitialiser un formulaire avec des données existantes
+		reset,
 	} = useForm();
 
 	// useNavigate
@@ -23,16 +24,30 @@ const AdminVehiculeFormPage = () => {
 	const [brands, setBrands] = useState([]);
 	const [options, setOptions] = useState([]);
 
+	// stocker le vehicule dont l'identifiant est contenu dans la route
+	const [vehicule, setVehicule] = useState([]);
+
+	// récuperer la varibale de route
+	const { id } = useParams();
+	// console.log(id);
+
 	useEffect(() => {
 		selectAllBrand().then((results) => setBrands(results.data));
 		selectAllOptions().then((results) => setOptions(results.data));
-	}, []);
+		selectOneVehicule(id).then((results) => {
+			// stocker les résultats dans un état
+			setVehicule(results.data);
+
+			//réinitialiser le formulaire avec les données dans un état
+			reset(results.data);
+		});
+	}, [id, reset]);
 
 	// récupérer l'utilisateur stocké dans le contexte
 	const { user, setUser } = useContext(UserContext);
 
 	const onSubmit = async (data) => {
-		console.log(data);
+		// console.log(data);
 
 		// authentification
 		const authentication = await authUser(user);

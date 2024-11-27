@@ -889,6 +889,7 @@ text-decoration: none;}
     padding: 10px 0;
     scroll-snap-type: x mandatory; /* Alignement fluide des éléments */
     justify-content: center; /* Centre les éléments horizontalement */
+    overflow-x: hidden;
 
 }
 
