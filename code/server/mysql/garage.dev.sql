@@ -9,7 +9,7 @@
 
     CREATE TABLE garage_dev.vehicule(
         id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50) NOT NULL ,
+        model VARCHAR(50) NOT NULL ,
         price DECIMAL(7, 2) UNSIGNED NOT NULL ,
         photo VARCHAR(50),
         brand_id TINYINT UNSIGNED NOT NULL,

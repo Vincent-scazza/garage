@@ -1,6 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
 import type File from "../model/file.js";
 import fs from "node:fs/promises";
+import type Vehicule from "../model/vehicule.js";
+import VehiculeRepository from "../repository/vehicule_repository.js";
 
 class VehiculeFileMiddleware {
 	public process = async (req: Request, res: Response, next: NextFunction) => {
@@ -18,6 +20,10 @@ class VehiculeFileMiddleware {
 */
 		// console.log(req.files);
 
+		// récupérer le véhicule mis a jour ou supprimé
+		const vehicule: Vehicule | unknown =
+			await new VehiculeRepository().selectOne(req.params);
+
 		// si une image a été sélectionnée
 		if ((req.files as []).length > 0) {
 			const file: File = (req.files as File[]).shift() as File;
@@ -30,7 +36,19 @@ class VehiculeFileMiddleware {
 			// utiliser le nom du fichier pour la propriété gérant l'image
 			req.body.photo = filename;
 
-			console.log(req.body);
+			// si un véhicule est mis a jour, supprimer l'ancien fichier
+			if (req.method === "PUT") {
+				await fs.rm(
+					`${process.env.ASSETS_DIRECTORY}/img/${(vehicule as Vehicule).photo}`,
+				);
+			}
+
+			// console.log(req.body);
+		} else {
+			// récupérer le nom de l'image déja existante en bdd
+			if (req.method === "PUT") {
+				req.body.img = (vehicule as Vehicule).photo;
+			}
 		}
 
 		// passer au middleware suivant

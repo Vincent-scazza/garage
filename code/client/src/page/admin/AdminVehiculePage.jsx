@@ -6,6 +6,7 @@ import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { selectAllVehicule } from "../../service/vehicule_api";
 import "../../assets/css/adminvehicule.css";
+import NoticeMessage from "../../component/common/NoticeMessage";
 
 const AdminVehiculePage = () => {
 	const [vehicules, setVehicules] = useState([]);
@@ -16,6 +17,7 @@ const AdminVehiculePage = () => {
 
 	return (
 		<>
+			<NoticeMessage />
 			<main className="conteneur">
 				<h1 className="titre">Vehicules</h1>
 				<button className="btn">
@@ -45,7 +47,7 @@ const AdminVehiculePage = () => {
 									alt="annonce voiture"
 								/>
 							</td>
-							<td>{data.name}</td>
+							<td>{data.model}</td>
 							<td>{data.price}€</td>
 							<td>{data.brand.name}</td>
 							<td>

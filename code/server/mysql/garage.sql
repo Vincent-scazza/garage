@@ -9,7 +9,7 @@ DROP DATABASE IF EXISTS garage;
 
     CREATE TABLE garage.vehicule(
         id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50) NOT NULL ,
+        model VARCHAR(50) NOT NULL ,
         price DECIMAL(7, 2) UNSIGNED NOT NULL ,
         photo VARCHAR(50),
         brand_id TINYINT UNSIGNED NOT NULL,
@@ -32,7 +32,7 @@ DROP DATABASE IF EXISTS garage;
 
     CREATE TABLE garage.roles(
         id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-        name VARCHAR(50) NOT NULL UNIQUE
+             VARCHAR(50) NOT NULL UNIQUE
     );
 
     CREATE TABLE garage.user(

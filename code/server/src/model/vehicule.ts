@@ -5,6 +5,7 @@ type Vehicule = {
 	id?: number;
 	model?: string;
 	price?: number;
+	photo?: string;
 	brand_id?: number;
 	brand?: Brand | unknown;
 	//  liste des identifiants(clé primaire) des options

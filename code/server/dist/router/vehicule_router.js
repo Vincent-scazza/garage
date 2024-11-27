@@ -23,7 +23,7 @@ class VehiculeRouter {
         // middleware any de multer permet d'accéder aux fichiers transférés avec req.files
         this.router.post("/", this.upload.any(), new VehiculeFileMiddleware().process, new AuthorizationMiddleware().Authorize(["admin"]), new VehiculeValidatorMiddelware().filter, new VehiculeController().create);
         // route pour modifier un vehicule
-        this.router.put("/:id", new VehiculeController().update);
+        this.router.put("/:id", this.upload.any(), new VehiculeFileMiddleware().process, new VehiculeController().update);
         // route pour supprimer un véhicule
         this.router.delete("/:id", new VehiculeController().delete);
         return this.router;

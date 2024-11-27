@@ -9,7 +9,7 @@ const VehiculeItemCarousel = ({ data }) => {
 				alt="annonce voiture"
 			/>
 			<h3>
-				{data.name}-{data.brand.name}
+				{data.model}-{data.brand.name}
 			</h3>
 			<p>À partir de {data.price} €</p>
 			<Link to={"/annonce"} className="btn-carousel">

@@ -2,7 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { selectAllBrand } from "../../service/brand_api";
-import { CreateVehicule, selectOneVehicule } from "../../service/vehicule_api";
+import {
+	CreateVehicule,
+	selectOneVehicule,
+	updateVehicule,
+} from "../../service/vehicule_api";
 import { selectAllOptions } from "../../service/options_api";
 import { authUser } from "../../service/security_api";
 import { UserContext } from "../../provider/UserProvider";
@@ -35,6 +39,12 @@ const AdminVehiculeFormPage = () => {
 		selectAllBrand().then((results) => setBrands(results.data));
 		selectAllOptions().then((results) => setOptions(results.data));
 		selectOneVehicule(id).then((results) => {
+			// casses a cocher,un array est obligatoire pour procéder
+			// const data = {
+			// 	...results.data,
+			// 	options_id: results.data.options_id.split(","),
+			// };
+
 			// stocker les résultats dans un état
 			setVehicule(results.data);
 
@@ -55,12 +65,17 @@ const AdminVehiculeFormPage = () => {
 		// console.log(authentication.data.token);
 
 		// créer un véhicule
-		const results = await CreateVehicule(authentication.data.token, data);
+		const results = id
+			? await updateVehicule(authentication.data.token, data)
+			: await CreateVehicule(authentication.data.token, data);
 
 		// si le véhicule a été crée
-		if (results.status === 201) {
+		if ([200, 201].indexOf(results.status) >= 0) {
 			// stocker le message dans la session
-			window.sessionStorage.setItem("notice", "Vehicule created");
+			window.sessionStorage.setItem(
+				"notice",
+				id ? "Vehicule updated" : "Vehicule created",
+			);
 
 			// redirection vers route
 			navigate("/admin/vehicule");
@@ -75,10 +90,10 @@ const AdminVehiculeFormPage = () => {
 
 			<h1>Formulaire </h1>
 
-			{/* 
+			{/* 			
 					si le formulaire possède un chmap file
 					ajouter l'attribut encType = multipart/form-data
-				*/}
+				 */}
 
 			<form
 				className="form"
@@ -110,9 +125,12 @@ const AdminVehiculeFormPage = () => {
 					<input
 						type="file"
 						id="photo"
-						{...register("photo", {
-							required: "La photo du véhicule est requis",
-						})}
+						// si un véhicule est ajouté, le champs est boligatoire
+						// si un véhicule est modifié, le champs est optionnnel
+						{...register(
+							"photo",
+							id ? {} : { required: "La photo du véhicule est requis" },
+						)}
 					/>
 					<span>{errors?.photo?.message}</span>
 				</p>
@@ -154,7 +172,8 @@ const AdminVehiculeFormPage = () => {
 
 					<span>{errors?.options_id?.message}</span>
 				</div>
-				<input type="hidden" value="" {...register("id")} />
+				{/* la valeur du champs id est récupérer à partir de la variable de route */}
+				<input type="hidden" value={id} {...register("id")} />
 				<button className="btn" type="submit">
 					Ajouter un nouveau véhicule.
 				</button>
