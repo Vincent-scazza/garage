@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { selectAllVehicule } from "../../service/vehicule_api";
 import "../../assets/css/adminvehicule.css";
@@ -53,13 +55,14 @@ const AdminVehiculePage = () => {
 							</td>
 
 							<td>
-								<Link className="update" to={"#"}>
-									<i className="fas fa-trash" />
-									Update
+								<Link className="update" to={`/admin/vehicule/form/${data.id}`}>
+									<FontAwesomeIcon icon={faPencilAlt} />
+									MODIFIER
 								</Link>
 								<br />
 								<Link className="delete" to={"#"}>
-									Delete
+									<FontAwesomeIcon icon={faTrash} />
+									SUPPRIMER
 								</Link>
 							</td>
 						</tr>

@@ -56,14 +56,6 @@ function showSignup() {
 	document.getElementById("login-form").classList.add("hidden");
 }
 
-// Fermeture du pop-up en cliquant en dehors du contenu
-window.addEventListener("click", (event) => {
-	const popup = document.getElementById("auth-popup");
-	if (event.target == popup) {
-		togglePopup();
-	}
-});
-
 // Optionnel : Validation du formulaire de newsletter
 document
 	.querySelector(".newsletter-form")
@@ -72,17 +64,6 @@ document
 		// Ajoutez ici le code pour gérer l'inscription à la newsletter
 		alert("Merci pour votre inscription à la newsletter!");
 	});
-
-// Fonction pour afficher/masquer le pop-up
-function togglePopup() {
-	const popup = document.getElementById("auth-popup");
-	popup.classList.toggle("hidden");
-}
-
-// Fonction pour basculer entre le formulaire de connexion et d'inscription
-function showSignup() {
-	// Votre code pour afficher le formulaire d'inscription
-}
 
 // Si vous avez un formulaire d'inscription, assurez-vous qu'il est également présent dans votre HTML
 // Fonction pour afficher/masquer le pop-up

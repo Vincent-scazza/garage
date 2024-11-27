@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../provider/UserProvider";
 import "../../assets/js/nuit";
+import { nuit } from "../../assets/js/nuit";
 
 const Header = () => {
+	useEffect(() => {
+		nuit();
+	}, []);
+
 	// useContext permet d'accéder aux données
 	const { user, setUser } = useContext(UserContext);
 	return (
@@ -24,11 +29,7 @@ const Header = () => {
 				</h1>
 
 				{/* <!-- Bouton de switch pour le mode clair/sombre --> */}
-				<div
-					className="theme-switch"
-					id="them /e-switch"
-					onclick="toggleTheme()"
-				>
+				<div className="theme-switch" id="them /e-switch" onclick="toggleTheme">
 					<i className="bx bx-sun" id="theme-icon" />
 				</div>
 				{/* <!-- Navigation principale --> */}

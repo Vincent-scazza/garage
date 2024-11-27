@@ -4,12 +4,10 @@ const VehiculeItemCarousel = ({ data }) => {
 	return (
 		<article className="carousel-item">
 			{/* biome-ignore lint/a11y/useAltText: <explanation> */}
-			<figure>
-				<img
-					src={`${import.meta.env.VITE_API_URL}/img/${data.photo}`}
-					alt="annonce voiture"
-				/>
-			</figure>
+			<img
+				src={`${import.meta.env.VITE_API_URL}/img/${data.photo}`}
+				alt="annonce voiture"
+			/>
 			<h3>
 				{data.name}-{data.brand.name}
 			</h3>

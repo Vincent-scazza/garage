@@ -12,6 +12,7 @@ import LogoutPage from "../page/LogoutPage";
 import AdminVehiculeFormPage from "../page/admin/AdminVehiculeFormPage";
 import AdminVehiculePage from "../page/admin/AdminVehiculePage";
 import AdminHomePage from "../page/admin/AdminHomePage";
+import Guard from "../component/common/Guard";
 
 const router = createBrowserRouter([
 	/* 
@@ -67,7 +68,12 @@ const router = createBrowserRouter([
 
 	{
 		path: "/admin/",
-		element: <BaseLayout />,
+		element: (
+			<Guard roles={["admin"]}>
+				<BaseLayout />,
+			</Guard>
+		),
+
 		children: [
 			{
 				path: "",
@@ -78,7 +84,9 @@ const router = createBrowserRouter([
 				element: <AdminVehiculePage />,
 			},
 			{
-				path: "vehicule/form",
+				//céer une variable de route : utiliser :<nom de la variable>
+				// ? : variable optionnel
+				path: "vehicule/form/:id?",
 				element: <AdminVehiculeFormPage />,
 			},
 		],

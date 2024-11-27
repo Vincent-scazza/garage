@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { selectAllBrand } from "../../service/brand_api";
 import { CreateVehicule } from "../../service/vehicule_api";
 import { selectAllOptions } from "../../service/options_api";
 import { authUser } from "../../service/security_api";
 import { UserContext } from "../../provider/UserProvider";
+import NoticeMessage from "../../component/common/NoticeMessage";
 
 const AdminVehiculeFormPage = () => {
 	const {
@@ -14,6 +15,9 @@ const AdminVehiculeFormPage = () => {
 		reset,
 		formState: { errors },
 	} = useForm();
+
+	// useNavigate
+	const navigate = useNavigate();
 
 	// récupérer les marques et les options
 	const [brands, setBrands] = useState([]);
@@ -37,6 +41,15 @@ const AdminVehiculeFormPage = () => {
 
 		// créer un véhicule
 		const results = await CreateVehicule(authentication.data.token, data);
+
+		// si le véhicule a été crée
+		if (results.status === 201) {
+			// stocker le message dans la session
+			window.sessionStorage.setItem("notice", "Vehicule created");
+
+			// redirection vers route
+			navigate("/admin/vehicule");
+		}
 	};
 
 	return (
@@ -131,6 +144,8 @@ const AdminVehiculeFormPage = () => {
 					Ajouter un nouveau véhicule.
 				</button>
 			</form>
+
+			<NoticeMessage />
 		</main>
 	);
 };
