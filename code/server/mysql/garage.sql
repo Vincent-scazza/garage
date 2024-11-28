@@ -32,7 +32,7 @@ DROP DATABASE IF EXISTS garage;
 
     CREATE TABLE garage.roles(
         id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-             VARCHAR(50) NOT NULL UNIQUE
+        name VARCHAR(50) NOT NULL UNIQUE
     );
 
     CREATE TABLE garage.user(
