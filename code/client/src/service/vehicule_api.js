@@ -117,4 +117,36 @@ const updateVehicule = async (token, formType) => {
 	return data;
 };
 
-export { CreateVehicule, selectAllVehicule, selectOneVehicule, updateVehicule };
+// supprimer le vehicule
+const deleteVehicule = async (token, id) => {
+	// configure la requete HTTP
+
+	const request = new Request(
+		`${import.meta.env.VITE_API_URL}/vehicule/${id}`,
+		{
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${token}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ id: id }),
+		},
+	);
+
+	// récupere la réponse
+	const response = await fetch(request);
+
+	// récuperer les données JSON contenues dans la réponse
+	const data = await response.json();
+
+	// retourner les données JSON
+	return data;
+};
+
+export {
+	CreateVehicule,
+	selectAllVehicule,
+	selectOneVehicule,
+	updateVehicule,
+	deleteVehicule,
+};

@@ -47,7 +47,7 @@ class VehiculeFileMiddleware {
 		} else {
 			// récupérer le nom de l'image déja existante en bdd
 			if (req.method === "PUT") {
-				req.body.img = (vehicule as Vehicule).photo;
+				req.body.photo = (vehicule as Vehicule).photo;
 			}
 		}
 

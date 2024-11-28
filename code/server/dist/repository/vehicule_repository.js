@@ -135,6 +135,7 @@ class VehiculeRepository {
                 SET
                     ${this.table}.model = :model,
                     ${this.table}.price = :price,
+                    ${this.table}.photo = :photo,
                     ${this.table}.brand_id = :brand_id
                 WHERE
                     ${this.table}.id = :id

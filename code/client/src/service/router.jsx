@@ -80,7 +80,7 @@ const router = createBrowserRouter([
 				element: <AdminHomePage />,
 			},
 			{
-				path: "vehicule",
+				path: "vehicule/:id?",
 				element: <AdminVehiculePage />,
 			},
 			{

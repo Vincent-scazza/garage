@@ -1,19 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
-import { selectAllVehicule } from "../../service/vehicule_api";
+import { useContext, useEffect, useState } from "react";
+import { selectAllVehicule, deleteVehicule } from "../../service/vehicule_api";
 import "../../assets/css/adminvehicule.css";
 import NoticeMessage from "../../component/common/NoticeMessage";
+import { authUser } from "../../service/security_api";
+import { UserContext } from "../../provider/UserProvider";
 
 const AdminVehiculePage = () => {
 	const [vehicules, setVehicules] = useState([]);
 
+	const { id } = useParams();
+	const { user, setUser } = useContext(UserContext);
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		selectAllVehicule().then((results) => setVehicules(results.data));
-	}, []);
+
+		// si la variable de route id existe, supprimer un vehicule
+		if (id) remove(id);
+	}, [id]);
+
+	const remove = async (id) => {
+		const authentication = await authUser(user);
+		const results = await deleteVehicule(authentication.data.token, id);
+
+		if (results.status === 200) {
+			window.sessionStorage.setItem("notice", "Vehicule deleted");
+			navigate("/admin/vehicule");
+			return;
+		}
+	};
 
 	return (
 		<>
@@ -62,7 +82,7 @@ const AdminVehiculePage = () => {
 									MODIFIER
 								</Link>
 								<br />
-								<Link className="delete" to={"#"}>
+								<Link className="delete" to={`/admin/vehicule/${data.id}`}>
 									<FontAwesomeIcon icon={faTrash} />
 									SUPPRIMER
 								</Link>
