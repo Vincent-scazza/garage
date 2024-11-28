@@ -39,7 +39,7 @@ const Header = () => {
 					</li>
 
 					<li className="nav-btn">
-						<Link to="/contact">Contact</Link>
+						<Link to="contact">Contact</Link>
 					</li>
 
 					{user ? (
@@ -57,6 +57,11 @@ const Header = () => {
 
 					{user?.role.name === "admin" ? (
 						<Link to={"/admin"}>Administration</Link>
+					) : (
+						<></>
+					)}
+					{user?.role.name === "admin" ? (
+						<Link to={"/admin/contact"}>AdminContact</Link>
 					) : (
 						<></>
 					)}

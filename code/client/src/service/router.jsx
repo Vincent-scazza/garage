@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../page/HomePage";
-import ContactPage from "../page/ContactPage";
+import MainContact from "../page/admin/MainContact";
 import Annonce from "../page/Annonce";
 import MentionLg from "../page/Mentionlg";
 import BaseLayout from "../layout/BaseLayout";
@@ -13,6 +13,7 @@ import AdminVehiculeFormPage from "../page/admin/AdminVehiculeFormPage";
 import AdminVehiculePage from "../page/admin/AdminVehiculePage";
 import AdminHomePage from "../page/admin/AdminHomePage";
 import Guard from "../component/common/Guard";
+import AdminContact from "../page/admin/AdminContact";
 
 const router = createBrowserRouter([
 	/* 
@@ -30,10 +31,9 @@ const router = createBrowserRouter([
 				path: "/",
 				element: <HomePage />,
 			},
-
 			{
 				path: "contact",
-				element: <ContactPage />,
+				element: <MainContact />,
 			},
 			{
 				path: "annonce",
@@ -88,6 +88,10 @@ const router = createBrowserRouter([
 				// ? : variable optionnel
 				path: "vehicule/form/:id?",
 				element: <AdminVehiculeFormPage />,
+			},
+			{
+				path: "contact",
+				element: <AdminContact />,
 			},
 		],
 	},
