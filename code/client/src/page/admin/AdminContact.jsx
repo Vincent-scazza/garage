@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { get_contacts } from "../../service/contact_api";
-// import "../../assets/css/admin_contact.css";
+import "../../assets/css/admin_contact.css";
 
 const AdminContact = () => {
 	const [contacts, setContacts] = useState([]);

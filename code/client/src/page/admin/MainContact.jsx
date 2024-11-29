@@ -27,8 +27,11 @@ const MainContact = () => {
 			// Si la création est réussie, afficher un message de succès et rediriger
 			if (result.status === 201 || result.status === 200) {
 				// Stocker le message dans le session storage
-				window.sessionStorage.setItem("notice", "Contact créé avec succès !");
-				setSuccessMessage("Contact créé avec succès !");
+				window.sessionStorage.setItem(
+					"notice",
+					"Message envoyer avec succès !",
+				);
+				setSuccessMessage("Message envoyer avec succès !");
 				navigate("/");
 			} else {
 				// Mettre à jour l'état avec le message d'erreur
@@ -45,11 +48,13 @@ const MainContact = () => {
 
 	return (
 		<main className="main-contact">
-			<h1>Créer un Nouveau Contact</h1>
+			<h1 className="blanc">Nous contacter</h1>
 			{errorMessage && <p className="error-message">{errorMessage}</p>}
 			{successMessage && <p className="success-message">{successMessage}</p>}
 			<form onSubmit={handleSubmit(submit)} className="form-contact">
-				<label htmlFor="email">Email</label>
+				<label className="blanc" htmlFor="email">
+					Email
+				</label>
 				<input
 					type="email"
 					{...register("email", { required: "L'email est requis" })}
@@ -59,7 +64,9 @@ const MainContact = () => {
 				/>
 				<span className="error-message">{errors.email?.message}</span>
 
-				<label htmlFor="subject">Sujet</label>
+				<label className="blanc" htmlFor="subject">
+					Sujet
+				</label>
 				<input
 					type="text"
 					{...register("subject", { required: "Le sujet est requis" })}
@@ -69,7 +76,9 @@ const MainContact = () => {
 				/>
 				<span className="error-message">{errors.subject?.message}</span>
 
-				<label htmlFor="message">Message</label>
+				<label className="blanc" htmlFor="message">
+					Message
+				</label>
 				<textarea
 					{...register("message", { required: "Le message est requis" })}
 					id="message"
@@ -78,7 +87,7 @@ const MainContact = () => {
 				></textarea>
 				<span className="error-message">{errors.message?.message}</span>
 
-				<button type="submit" id="submit-contact">
+				<button className="btn" type="submit" id="submit-contact">
 					Envoyer
 				</button>
 			</form>

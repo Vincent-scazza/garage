@@ -1,0 +1,66 @@
+.admin-contact {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.admin-contact-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.admin-contact-empty {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
+
+.admin-contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-contact-table-header {
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+.admin-contact-table-header th {
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.admin-contact-table-row {
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.admin-contact-table-row:hover {
+    background-color: #f9f9f9;
+}
+
+.admin-contact-table-row td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    .admin-contact-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .admin-contact-table-header th,
+    .admin-contact-table-row td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
