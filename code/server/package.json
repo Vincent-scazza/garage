@@ -7,7 +7,7 @@
 		"compile": "npx tsc ",
 		"build": "npx tsc -w",
 		"dev": "npm run build & node --env-file .env.dev --watch dist/index.js",
-		"start": "node --env-file .en --watch dist/index.js",
+		"start": "node --env-file .env --watch dist/index.js",
 		"test": "vitest",
 		"test:coverage": "vitest --coverage"
 	},
