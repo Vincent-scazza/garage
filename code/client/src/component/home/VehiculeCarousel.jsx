@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { selectAllVehicule } from "../../service/vehicule_api";
-import VehiculeItemCarrousel from "./VehiculeItemCarousel";
 import { UserContext } from "../../provider/UserProvider";
+import VehiculeItemCarousel from "./VehiculeItemCarousel";
 // récuperer la props data envoyée par le composant parent
 
-const VehiculeCarousel = ({ data }) => {
+const VehiculeCarousel = () => {
 	// hook useState : permet de rafraichir visuellement un composant
 	const [vehicules, setVehicules] = useState([]);
 	// useContext permet d'accéder aux données
@@ -27,7 +27,7 @@ const VehiculeCarousel = ({ data }) => {
 			<div className="carousel">
 				<div className="carousel-track">
 					{vehicules.map((item) => {
-						return <VehiculeItemCarrousel data={item} />;
+						return <VehiculeItemCarousel key={Math.random()} data={item} />;
 					})}
 				</div>
 			</div>
