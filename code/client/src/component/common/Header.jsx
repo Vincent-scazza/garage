@@ -20,7 +20,9 @@ const Header = () => {
 		<header>
 			<nav className="navbar container, navabar">
 				{/* <!-- Menu Burger --> */}
-
+				<a href="/">
+					<img src="img/logo_site.png" alt="" />
+				</a>
 				{/* <!-- Logo --> */}
 				<h1>
 					<Link to="/" className="logo">

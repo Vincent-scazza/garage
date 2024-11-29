@@ -15,7 +15,6 @@ body {
    
 }
 
-.h22{color: black;}
 /* Variables pour le mode clair (par défaut) */
 :root {
     --header-bg: #fff;
@@ -41,6 +40,8 @@ body {
     --bleu-acier:#2C5697;
     
 }
+
+.h22{color: black;}
 
 .qrcode-container {
     margin-top: 10px;
@@ -75,6 +76,10 @@ align-items: center;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)absolute;
 }
+
+.navabar img{height: auto;
+width: 8vw;
+border-radius: 50%;}
 
 .image-logo {
     width: 100px;

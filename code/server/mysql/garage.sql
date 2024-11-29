@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS garage;
-
     CREATE DATABASE garage;
 
     CREATE TABLE garage.brand(
@@ -73,7 +71,7 @@ VALUES
         (NULL, 'Freinage d’urgence autonome'),
         (NULL, 'Régulateur de vitesse '),
         (NULL, 'Toit ouvrant'),
-        (NULL, 'Intérieur en cuir'),
+        (NULL, 'Intérieur en cuir'),    
         (NULL, 'Volant multifonctions'),
         (NULL, 'Surveillance des angles morts'),
         (NULL, 'Assistant de stationnement automatique'),
@@ -122,6 +120,5 @@ VALUES
 -- admin@admin.fr admin / user@user.com user
 INSERT INTO garage.user
 VALUES
-    (NULL, 'admin@admin.fr', '$argon2i$v=19$m=16,t=2,p=1$T0JpcmVPM1VPSFpKTURXRQ$XfL7XikxkKe39VdOzHNRNQ', 1),
-    (NULL, 'user@user.com', '$argon2i$v=19$m=16,t=2,p=1$QlBsMHNmNDR1TXIzU2RTRQ$+QoSQy7thet+gHIZSyF0Ig', 2)
+    (NULL, 'admin@admin.fr', '$argon2i$v=19$m=16,t=2,p=1$OHpydVVLV3RXMUVrM0VmVg$pK6c1T4VqzFlRLaUfj0tHw', 1),
 ;

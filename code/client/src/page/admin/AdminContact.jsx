@@ -22,7 +22,6 @@ const AdminContact = () => {
 				<table className="admin-contact-table">
 					<thead>
 						<tr className="admin-contact-table-header">
-							<th>ID</th>
 							<th>Email</th>
 							<th>Sujet</th>
 							<th>Message</th>
@@ -31,7 +30,6 @@ const AdminContact = () => {
 					<tbody>
 						{contacts.map((contact) => (
 							<tr key={contact.id} className="admin-contact-table-row">
-								<td>{contact.id}</td>
 								<td>{contact.email}</td>
 								<td>{contact.subject}</td>
 								<td>{contact.message}</td>

@@ -44,7 +44,6 @@ const AdminVehiculeFormPage = () => {
 			// 	...results.data,
 			// 	options_id: results.data.options_id.split(","),
 			// };
-			x;
 			// stocker les résultats dans un état
 			setVehicule(results.data);
 
